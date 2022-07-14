@@ -1,0 +1,10 @@
+<p>Welcome to Psychologist Scheduller</p>
+
+<% unless logged_in?%>
+  <br><br>
+  <%= render 'layouts/login_signup' %>
+<% end %>
+<% if logged_in?%>
+  <br><br>
+  <%= link_to "Users", users_path %>
+<% end %>
