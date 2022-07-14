@@ -11,6 +11,10 @@
   </head>
 
   <body>
+  <% if logged_in?%>
+    <br><br>
+    <a class="nav-link" data-method="delete" href="/logout">Logout</a>
+  <% end %>
     <%= yield %>
   </body>
 </html>
