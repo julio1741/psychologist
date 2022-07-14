@@ -1,2 +1,11 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="">
+  <h5 align="center">List of Users</h5>
+  <br>
+  <dl align="center">
+    <% @users.each do |user| %>
+      <dt>
+        <%= user.email %>
+      </dt>
+    <% end %>
+  </dl>
+</div>
