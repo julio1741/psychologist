@@ -26,6 +26,11 @@
     <%= form.label :phone, style: "display: block", class:"form-label" %>
   </div>
 
+  <div class="form-floating mb-3">
+    <%= form.select :hospital_id, @hospitals.map{|h| [h.name, h.id]}, {}, { :class => 'form-select' } %>
+    <%= form.label :hospital_id, style: "display: block", class:"form-label" %>
+  </div>
+
   <div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>

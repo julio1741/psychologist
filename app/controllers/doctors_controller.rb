@@ -1,5 +1,6 @@
 class DoctorsController < ApplicationController
   before_action :set_doctor, only: %i[ show edit update destroy ]
+  before_action :set_hospitals, only: %i[ new edit index ]
 
   # GET /doctors or /doctors.json
   def index
@@ -65,6 +66,10 @@ class DoctorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def doctor_params
-      params.require(:doctor).permit(:firstname, :lastname, :phone)
+      params.require(:doctor).permit(:firstname, :lastname, :phone, :hospital_id)
+    end
+
+    def set_hospitals
+      @hospitals = Hospital.all
     end
 end

@@ -8,6 +8,7 @@
         <th scope="col">Firstname</th>
         <th scope="col">Lastname</th>
         <th scope="col">Phone</th>
+        <th scope="col">Hospital</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -18,6 +19,7 @@
           <td><%= doctor.firstname %></td>
           <td><%= doctor.lastname %></td>
           <td><%= doctor.phone %></td>
+          <td><%= doctor.hospital.name %></td>
           <td><%= link_to "Show", doctor, class: 'btn btn-outline-info' %></td>
         </tr>
       <% end %>
