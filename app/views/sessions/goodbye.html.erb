@@ -1,5 +1,29 @@
-<div class="" align="center">
-  <h5>Thank you for using Psychologist Scheduller</h5>
-  <%= link_to "Home", root_path %>
-  <%= render 'layouts/login_signup' %>
+<div class="container">
+  <div class="row g-1">
+    <div class="col-12">
+      <div class="p-3 border bg-light">
+        <div class="d-flex  align-items-center justify-content-center">
+          <h5>Thank you for using Psychologist Scheduller</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="p-3 border bg-light">
+        <% unless logged_in?%>
+          <div class="d-flex  align-items-center justify-content-center">
+            <%= link_to "Home", root_path, class: 'btn btn-outline-warning' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="p-3 border bg-light">
+        <% unless logged_in?%>
+          <div class="d-flex  align-items-center justify-content-center">
+            <%= render 'layouts/login_signup' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
