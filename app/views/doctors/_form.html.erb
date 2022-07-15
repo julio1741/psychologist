@@ -1,0 +1,32 @@
+<%= form_with(model: doctor, class:"p-4 p-md-5 border rounded-3 bg-light") do |form| %>
+  <% if doctor.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+
+      <ul>
+        <% doctor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-floating mb-3">
+    <%= form.text_field :firstname, class: "form-control", id: "doctor_firstname", placeholder: "Julio" %>
+    <%= form.label :firstname, style: "display: block", class:"form-label" %>
+  </div>
+
+  <div class="form-floating mb-3">
+    <%= form.text_field :lastname, class: "form-control", id: "doctor_lastname", placeholder: "Baptista" %>
+    <%= form.label :lastname, style: "display: block", class:"form-label" %>
+  </div>
+
+  <div class="form-floating mb-3">
+    <%= form.number_field :phone, class: "form-control", id: "doctor_phone", placeholder: "12345678" %>
+    <%= form.label :phone, style: "display: block", class:"form-label" %>
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+<% end %>
