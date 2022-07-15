@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :work_days
   resources :doctors
   resources :hospitals
   resources :users

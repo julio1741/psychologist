@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Editing Work day <%= @work_day.name %></h1>
+    <div class="col-lg-6 mx-auto">
+
+      <%= render "form", work_day: @work_day %>
+      <br>
+      <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+        <%= link_to "Show this work day", @work_day, class: 'btn btn-primary btn-lg px-4 gap-3' %>
+        <%= link_to "Back to work days", work_days_path, class: 'btn btn-outline-secondary btn-lg px-4' %>
+      </div>
+    </div>
+  </div>
+</div>
