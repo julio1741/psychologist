@@ -1,4 +1,4 @@
-<%= form_with(model: work_day) do |form| %>
+<%= form_with(model: work_day, class: "p-4 p-md-5 border rounded-3 bg-light") do |form| %>
   <% if work_day.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(work_day.errors.count, "error") %> prohibited this work_day from being saved:</h2>

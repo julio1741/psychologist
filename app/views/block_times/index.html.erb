@@ -1,0 +1,25 @@
+<div class="container" id="block_times">
+  <p style="color: green"><%= notice %></p>
+  <h1>Block times</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Start</th>
+        <th scope="col">End</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @block_times.each do |block_time| %>
+        <tr>
+          <th scope="row"><%= block_time.id %></th>
+          <td><%= block_time.start.strftime("%I:%M %p") %></td>
+          <td><%= block_time.end.strftime("%I:%M %p") %></td>
+          <td><%= link_to "Show", block_time, class: 'btn btn-outline-info' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "New block time", new_block_time_path, class: 'btn btn-outline-primary' %>
+</div>

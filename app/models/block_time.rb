@@ -1,0 +1,2 @@
+class BlockTime < ApplicationRecord
+end
