@@ -1,4 +1,11 @@
-<div class="" align="center">
-  <%= flash[:error] %>
-  <br><%= link_to "Log In with Google", '/auth/google_oauth2' %>
+<div class="container">
+  <div class="row g-1">
+    <div class="col-12">
+      <div class="p-3 border bg-light">
+        <div class="d-flex  align-items-center justify-content-center">
+          <%= link_to "Log In with Google", '/auth/google_oauth2', class: 'btn btn-outline-danger' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

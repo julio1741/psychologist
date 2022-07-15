@@ -1,10 +1,20 @@
-<p>Welcome to Psychologist Scheduller</p>
-
-<% unless logged_in?%>
-  <br><br>
-  <%= render 'layouts/login_signup' %>
-<% end %>
-<% if logged_in?%>
-  <br><br>
-  <%= link_to "Users", users_path %>
-<% end %>
+<div class="container">
+  <div class="row g-1">
+    <div class="col-12">
+      <div class="p-3 border bg-light">
+        <div class="d-flex  align-items-center justify-content-center">
+          <h1>Welcome to Psychologist Scheduller</h1>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="p-3 border bg-light">
+        <% unless logged_in?%>
+          <div class="d-flex  align-items-center justify-content-center">
+            <%= render 'layouts/login_signup' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
