@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :hospitals
   resources :users
 
   root 'sessions#welcome'

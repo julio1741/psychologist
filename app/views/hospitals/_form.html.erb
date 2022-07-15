@@ -1,0 +1,22 @@
+<%= form_with(model: hospital, class:"p-4 p-md-5 border rounded-3 bg-light") do |form| %>
+  <% if hospital.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(hospital.errors.count, "error") %> prohibited this hospital from being saved:</h2>
+
+      <ul>
+        <% hospital.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-floating mb-3">
+    <%= form.text_field :name, class: "form-control", id: "hospital_name", placeholder: "Hospital" %>
+    <%= form.label :name, style: "display: block", class:"form-label" %>
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+<% end %>

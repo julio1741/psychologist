@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Editing hospital</h1>
+    <div class="col-lg-6 mx-auto">
+
+      <%= render "form", hospital: @hospital %>
+      <br>
+      <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+        <%= link_to "Show this hospital", @hospital, class: 'btn btn-primary btn-lg px-4 gap-3' %>
+        <%= link_to "Back to hospitals", hospitals_path, class: 'btn btn-outline-secondary btn-lg px-4' %>
+      </div>
+    </div>
+  </div>
+</div>

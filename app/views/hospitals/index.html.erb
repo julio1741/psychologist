@@ -1,0 +1,23 @@
+<div class="container" id="hospitals">
+  <p style="color: green"><%= notice %></p>
+  <h1>Hospitals</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @hospitals.each do |hospital| %>
+        <tr>
+          <th scope="row"><%= hospital.id %></th>
+          <td><%= hospital.name %></td>
+          <td><%= link_to "Show", hospital, class: 'btn btn-outline-info' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "New hospital", new_hospital_path, class: 'btn btn-outline-primary' %>
+</div>
