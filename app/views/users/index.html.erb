@@ -1,11 +1,18 @@
-<div class="">
-  <h5 align="center">List of Users</h5>
-  <br>
-  <dl align="center">
-    <% @users.each do |user| %>
-      <dt>
-        <%= user.email %>
-      </dt>
-    <% end %>
-  </dl>
+<div class="container" id="hospitals">
+  <p style="color: green"><%= notice %></p>
+  <h1>Users</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Mails:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
