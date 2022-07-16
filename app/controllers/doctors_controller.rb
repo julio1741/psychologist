@@ -1,6 +1,6 @@
 class DoctorsController < ApplicationController
   before_action :set_doctor, only: %i[ show edit update destroy ]
-  before_action :set_hospitals, only: %i[ new edit index ]
+  before_action :set_hospitals, only: %i[ new edit index by_hospital ]
   before_action :set_work_days, only: %i[ new edit index ]
   before_action :set_block_times, only: %i[ new edit index ]
 
@@ -9,9 +9,17 @@ class DoctorsController < ApplicationController
     @doctors = Doctor.all
   end
 
+  def by_hospital
+    @doctors = Doctor.where(hospital_id: params[:hospital_id])
+    respond_to do |format|
+      format.json { render :index }
+    end
+  end
+
   # GET /doctors/1 or /doctors/1.json
   def show
   end
+
 
   # GET /doctors/new
   def new

@@ -17,7 +17,7 @@
   </div>
 
   <div class="form-floating mb-3">
-    <%= form.select :doctor_id, @doctors.map{|d| ["#{d.firstname} #{d.lastname}", d.id]}, {}, { :class => 'form-select' } %>
+    <%= form.select :doctor_id, [], {}, { :class => 'form-select', :disabled => true } %>
     <%= form.label :doctor_id, style: "display: block", class:"form-label" %>
   </div>
 

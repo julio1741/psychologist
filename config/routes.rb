@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   resources :reservations
   resources :block_times
   resources :work_days
-  resources :doctors
+  resources :doctors do
+    collection do
+      get 'by_hospital/:hospital_id', action: :by_hospital, as: :by_hospital
+    end
+  end
   resources :hospitals
   resources :users
 
