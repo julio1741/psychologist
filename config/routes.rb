@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reservations
   resources :block_times
   resources :work_days
   resources :doctors

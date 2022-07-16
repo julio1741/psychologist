@@ -1,0 +1,16 @@
+<div class="px-4 py-5 my-5 text-center">
+  <p style="color: green"><%= notice %></p>
+  <h1 class="display-5 fw-bold"><%= @reservation.firstname %></h1>
+  <h1 class="display-5 fw-bold"><%= @reservation.lastname %></h1>
+  <h1 class="display-5 fw-bold"><%= @reservation.day %></h1>
+  <h1 class="display-5 fw-bold"><%= @reservation.rut %></h1>
+  <h1 class="display-5 fw-bold"><%= @reservation.phone %></h1>
+  <h1 class="display-5 fw-bold"><%= @reservation.email %></h1>
+  <div class="col-lg-6 mx-auto">
+    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+      <%= link_to "Edit this reservation", edit_reservation_path(@reservation), class: 'btn btn-primary btn-lg px-4 gap-3' %>
+      <%= link_to "Back to hospitals", reservations_path, class: 'btn btn-outline-secondary btn-lg px-4' %>
+      <%= button_to "Destroy this reservation", @reservation, method: :delete, class: 'btn btn-outline-danger btn-lg px-4' %>
+    </div>
+  </div>
+</div>
