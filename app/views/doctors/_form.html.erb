@@ -46,6 +46,12 @@
     <div class="col-6">
       <div class=" p-3 border rounded-3">
         <h3>Block times</h3>
+        <% @block_times.each do |block_time| %>
+          <div class="form-check form-switch mb-3">
+            <%= form.check_box :block_times, {checked: doctor.block_times.map(&:id).include?(block_time.id), multiple: true, class: "form-check-input", style: "display: block"}, block_time.id , nil %>
+            <label class="form-check-label" for="doctor[work_days]"><%= block_time.start.strftime("%I:%M %p") %> - <%= block_time.end.strftime("%I:%M %p") %></label>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

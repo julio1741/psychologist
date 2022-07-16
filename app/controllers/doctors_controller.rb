@@ -2,6 +2,7 @@ class DoctorsController < ApplicationController
   before_action :set_doctor, only: %i[ show edit update destroy ]
   before_action :set_hospitals, only: %i[ new edit index ]
   before_action :set_work_days, only: %i[ new edit index ]
+  before_action :set_block_times, only: %i[ new edit index ]
 
   # GET /doctors or /doctors.json
   def index
@@ -27,7 +28,8 @@ class DoctorsController < ApplicationController
 
     respond_to do |format|
       if @doctor.save
-        #add_working_days(@doctor)
+        add_working_days(@doctor, params[:doctor][:work_days])
+        add_working_hours(@doctor, params[:doctor][:block_times])
         format.html { redirect_to doctor_url(@doctor), notice: "Doctor was successfully created." }
         format.json { render :show, status: :created, location: @doctor }
       else
@@ -42,6 +44,7 @@ class DoctorsController < ApplicationController
     respond_to do |format|
       if @doctor.update(doctor_params.except(:work_days))
         add_working_days(@doctor, params[:doctor][:work_days])
+        add_working_hours(@doctor, params[:doctor][:block_times])
         format.html { redirect_to doctor_url(@doctor), notice: "Doctor was successfully updated." }
         format.json { render :show, status: :ok, location: @doctor }
       else
@@ -62,10 +65,19 @@ class DoctorsController < ApplicationController
   end
 
   private
-    def add_working_days(doctor, work_days)
+    def add_working_days(doctor, work_days=[])
+      return if work_days.blank?
       doctor.work_days.destroy_all
       work_days.each do |work_day|
         doctor.work_days << WorkDay.find_by(name: work_day)
+      end
+    end
+
+    def add_working_hours(doctor, block_times=[])
+      return if block_times.blank?
+      doctor.block_times.destroy_all
+      block_times.each do |block_time|
+        doctor.block_times << BlockTime.find_by(id: block_time)
       end
     end
 
@@ -76,7 +88,7 @@ class DoctorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def doctor_params
-      params.require(:doctor).permit(:firstname, :lastname, :phone, :hospital_id, :work_days)
+      params.require(:doctor).permit(:firstname, :lastname, :phone, :hospital_id, :work_days, :block_times)
     end
 
     def set_hospitals
@@ -85,5 +97,9 @@ class DoctorsController < ApplicationController
 
     def set_work_days
       @work_days = WorkDay.all
+    end
+
+    def set_block_times
+      @block_times = BlockTime.all
     end
 end

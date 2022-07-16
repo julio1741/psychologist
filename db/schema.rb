@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_16_000203) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_16_021352) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,7 +61,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_16_000203) do
     t.index ["work_day_id"], name: "index_working_days_on_work_day_id"
   end
 
+  create_table "working_hours", force: :cascade do |t|
+    t.bigint "doctor_id", null: false
+    t.bigint "block_time_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["block_time_id"], name: "index_working_hours_on_block_time_id"
+    t.index ["doctor_id"], name: "index_working_hours_on_doctor_id"
+  end
+
   add_foreign_key "doctors", "hospitals"
   add_foreign_key "working_days", "doctors"
   add_foreign_key "working_days", "work_days"
+  add_foreign_key "working_hours", "block_times"
+  add_foreign_key "working_hours", "doctors"
 end
