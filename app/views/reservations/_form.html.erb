@@ -12,15 +12,29 @@
   <% end %>
 
   <div class="form-floating mb-3">
-    <%= form.select :hospital_id, @hospitals.map{|h| [h.name, h.id]}, {}, { :class => 'form-select' } %>
+    <%= form.select :hospital_id, @hospitals.map{|h| [h.name, h.id]}, { :prompt => 'Choose an hospital'}, { :class => 'form-select', :include_blank => true } %>
     <%= form.label :hospital_id, style: "display: block", class:"form-label" %>
   </div>
 
   <div class="form-floating mb-3">
-    <%= form.select :doctor_id, [], {}, { :class => 'form-select', :disabled => true } %>
+    <%= form.select :doctor_id, [], { :prompt => 'Choose a doctor'}, { :class => 'form-select', :disabled => true } %>
     <%= form.label :doctor_id, style: "display: block", class:"form-label" %>
   </div>
 
+  <div class="form-floating mb-3">
+    <%= form.date_field :day, min: Time.now, class: "form-control", id: "reservation_day", :disabled => true %>
+    <%= form.label :day, style: "display: block", class:"form-label" %>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="p-3 border rounded-3" >
+        <h3>Available hours for <span id="day_selected"></span></h3>
+        <div id="block_times_container">
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="form-floating mb-3">
     <%= form.text_field :firstname, class: "form-control", id: "reservation_firstname", placeholder: "Julio" %>
@@ -37,10 +51,6 @@
     <%= form.label :phone, style: "display: block", class:"form-label" %>
   </div>
 
-  <div class="form-floating mb-3">
-    <%= form.datetime_field :day, class: "form-control", id: "reservation_day" %>
-    <%= form.label :day, style: "display: block", class:"form-label" %>
-  </div>
 
   <div class="form-floating mb-3">
     <%= form.text_field :rut, class: "form-control", id: "reservation_rut", placeholder: "12345678" %>

@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-  before_action :set_doctor, only: %i[ show edit update destroy ]
+  before_action :set_doctor, only: %i[ show edit update destroy get_available_hours]
   before_action :set_hospitals, only: %i[ new edit index by_hospital ]
   before_action :set_work_days, only: %i[ new edit index ]
   before_action :set_block_times, only: %i[ new edit index ]
@@ -13,6 +13,22 @@ class DoctorsController < ApplicationController
     @doctors = Doctor.where(hospital_id: params[:hospital_id])
     respond_to do |format|
       format.json { render :index }
+    end
+  end
+
+  def get_doctor_working_days
+    @working_days = @doctor.working_days
+  end
+
+  def get_doctor_working_hours
+     @working_hours = @doctor.working_hours
+  end
+
+  def get_available_hours
+    day = params[:day]
+    @block_times = helpers.get_working_blocks_hours_by_day @doctor, day
+    respond_to do |format|
+      format.json { render :get_available_hours }
     end
   end
 
