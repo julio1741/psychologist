@@ -1,4 +1,4 @@
-<%= form_with(model: reservation) do |form| %>
+  <%= form_with(model: reservation) do |form| %>
   <% if reservation.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
@@ -14,30 +14,32 @@
   <%= form.hidden_field :user_id, :value => current_user.id %>
   <%= form.hidden_field :work_day_id %>
 
-  <div class="form-floating mb-3">
-    <%= form.select :hospital_id, @hospitals.map{|h| [h.name, h.id]}, { :prompt => 'Choose an hospital'}, { :class => 'form-select', :include_blank => true } %>
-    <%= form.label :hospital_id, style: "display: block", class:"form-label" %>
-  </div>
+  <% if @reservation.new_record? %>
+    <div class="form-floating mb-3">
+      <%= form.select :hospital_id, options_for_select(@hospitals.collect{|hospital| [hospital.name, hospital.id]}, @reservation&.doctor&.hospital&.id), { :prompt => 'Choose an hospital'}, { :class => 'form-select', :include_blank => true } %>
+      <%= form.label :hospital_id, style: "display: block", class:"form-label" %>
+    </div>
 
-  <div class="form-floating mb-3">
-    <%= form.select :doctor_id, [], { :prompt => 'Choose a doctor'}, { :class => 'form-select', :disabled => true } %>
-    <%= form.label :doctor_id, style: "display: block", class:"form-label" %>
-  </div>
+    <div class="form-floating mb-3">
+      <%= form.select :doctor_id, [], { :prompt => 'Choose a doctor'}, { :class => 'form-select', :disabled => true } %>
+      <%= form.label :doctor_id, style: "display: block", class:"form-label" %>
+    </div>
 
-  <div class="form-floating mb-3">
-    <%= form.date_field :day, min: Time.now, class: "form-control", id: "reservation_day", :disabled => true %>
-    <%= form.label :day, style: "display: block", class:"form-label" %>
-  </div>
+    <div class="form-floating mb-3">
+      <%= form.date_field :day, min: Time.now, class: "form-control", id: "reservation_day", :disabled => true %>
+      <%= form.label :day, style: "display: block", class:"form-label" %>
+    </div>
 
-  <div class="row">
-    <div class="col-12">
-      <div class="p-3 border rounded-3" >
-        <h3>Available hours for <span id="day_selected"></span></h3>
-        <div id="block_times_container">
+    <div class="row">
+      <div class="col-12">
+        <div class="p-3 border rounded-3" >
+          <h3>Available hours for <span id="day_selected"></span></h3>
+          <div id="block_times_container">
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="form-floating mb-3">
     <%= form.text_field :firstname, class: "form-control", id: "reservation_firstname", placeholder: "Julio" %>

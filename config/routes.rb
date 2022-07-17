@@ -19,9 +19,8 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
+  delete '/logout' => 'sessions#destroy'
 
   # Google Callback
   get '/auth/:provider/callback' => 'sessions#omniauth'
-  #get '*path' => redirect('/')
 end

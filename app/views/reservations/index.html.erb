@@ -26,8 +26,8 @@
           <td><%= reservation.doctor.firstname %></td>
           <td><%= reservation.work_day.name %></td>
           <td><%= reservation.block_time.start.strftime("%I:%M %p") %> - <%= reservation.block_time.end.strftime("%I:%M %p") %></td>
-          <td><%= reservation.email %></td>
           <td><%= reservation.rut %></td>
+          <td><%= reservation.email %></td>
           <td><%= link_to "Show", reservation, class: 'btn btn-outline-info' %></td>
         </tr>
       <% end %>
