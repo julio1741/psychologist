@@ -9,4 +9,10 @@ class Reservation < ApplicationRecord
   validates :firstname, :presence => true
 
   scope :by_user, ->(user_id) { where(user_id: user_id) }
+
+  after_create :send_email
+
+  def send_email
+    ReservationMailer.with(reservation: self).success.deliver_now
+  end
 end
