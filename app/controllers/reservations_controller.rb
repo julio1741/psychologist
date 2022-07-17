@@ -2,6 +2,7 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[ show edit update destroy ]
   before_action :set_hospitals, only: %i[ new edit ]
   before_action :set_doctors, only: %i[ new edit ]
+  before_action :set_personal_info, only: %i[ new edit ]
 
   # GET /reservations or /reservations.json
   def index
@@ -66,6 +67,12 @@ class ReservationsController < ApplicationController
   end
 
   private
+    def set_personal_info
+      split_name = current_user.username.strip.split()
+      @email = current_user.try(:email)
+      @firstname = split_name.try(:first)
+      @lastname = split_name.try(:last)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])

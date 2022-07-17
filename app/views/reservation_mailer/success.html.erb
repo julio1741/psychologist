@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello, <%= @user.username %></h1>
+    <p>
+      You have successfully scheduled an hour with <strong><%= "#{@doctor.firstname} #{@doctor.lastname}" %></strong>
+      for the day <strong><%= @work_day.name %> <%=@reservation.day.strftime("%Y-%m-%d") %></strong> a las
+       <strong><%= @block_time.start.strftime("%I:%M %p") %> - <%= @block_time.end.strftime("%I:%M %p") %></strong> 
+       en <strong><%= @hospital.name %></strong> <br>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for reserve and trust us! have a great day!</p>
+  </body>
+</html>
