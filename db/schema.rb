@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_17_174014) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_17_184120) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,7 +49,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_17_174014) do
     t.bigint "user_id", null: false
     t.bigint "work_day_id", null: false
     t.bigint "block_time_id", null: false
+    t.bigint "doctor_id", null: false
     t.index ["block_time_id"], name: "index_reservations_on_block_time_id"
+    t.index ["doctor_id"], name: "index_reservations_on_doctor_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
     t.index ["work_day_id"], name: "index_reservations_on_work_day_id"
   end
@@ -89,6 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_17_174014) do
 
   add_foreign_key "doctors", "hospitals"
   add_foreign_key "reservations", "block_times"
+  add_foreign_key "reservations", "doctors"
   add_foreign_key "reservations", "users"
   add_foreign_key "reservations", "work_days"
   add_foreign_key "working_days", "doctors"

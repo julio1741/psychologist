@@ -5,5 +5,7 @@ class Doctor < ApplicationRecord
 
   has_many :working_hours, dependent: :destroy
   has_many :block_times, through: :working_hours
+
+  has_many :reservations
 end
 
