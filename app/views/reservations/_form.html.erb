@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+  <%= form.hidden_field :work_day_id %>
+
   <div class="form-floating mb-3">
     <%= form.select :hospital_id, @hospitals.map{|h| [h.name, h.id]}, { :prompt => 'Choose an hospital'}, { :class => 'form-select', :include_blank => true } %>
     <%= form.label :hospital_id, style: "display: block", class:"form-label" %>

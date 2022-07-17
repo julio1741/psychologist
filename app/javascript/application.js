@@ -48,16 +48,19 @@ $(document).ready(function(){
         let $block_times_div = $('div#block_times_container');
         $block_times_div.html('')
         $('span#day_selected').text(day);
+        $('input#reservation_work_day_id').val('');
         let html = '';
-        if (result.length > 0) {
+        let block_times = result.block_times
+        if (block_times.length > 0) {
+          $('input#reservation_work_day_id').val(result.work_day_id);
           let i = 0;
           html = html +'<div class="p-3 border rounded-3">'
-          $.each(result, function(key, val) {
-            let text = result[key].firstname + ' ' + result[key].lastname
-            let  start = ("0" + new Date(result[key].start).getUTCHours()).slice(-2) + ":" +("0" + new Date(result[key].start).getUTCMinutes()).slice(-2); 
-            let  end = ("0" + new Date(result[key].end).getUTCHours()).slice(-2) + ":" +("0" + new Date(result[key].end).getUTCMinutes()).slice(-2);
+          $.each(block_times, function(key, val) {
+            let text = block_times[key].firstname + ' ' + block_times[key].lastname
+            let  start = ("0" + new Date(block_times[key].start).getUTCHours()).slice(-2) + ":" +("0" + new Date(block_times[key].start).getUTCMinutes()).slice(-2); 
+            let  end = ("0" + new Date(block_times[key].end).getUTCHours()).slice(-2) + ":" +("0" + new Date(block_times[key].end).getUTCMinutes()).slice(-2);
             html = html +'<div class="form-check">'
-            html = html +  '<input class="form-check-input" type="radio" name="reservation[block_time]" id="radios'+ i +'" value="'+result[key].id+'" checked>'
+            html = html +  '<input class="form-check-input" type="radio" name="reservation[block_time_id]" id="radios'+ i +'" value="'+block_times[key].id+'" checked>'
             html = html +  '<label class="form-check-label" for="radios'+ i +'">'
             html = html +   start + ' - ' + end
             html = html +  '</label>'

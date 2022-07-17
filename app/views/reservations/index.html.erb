@@ -1,6 +1,6 @@
 <div class="container" id="reservations">
   <p style="color: green"><%= notice %></p>
-  <h1>Hospitals</h1>
+  <h1>Reservations</h1>
   <table class="table">
     <thead>
       <tr>
@@ -9,6 +9,7 @@
         <th scope="col">lastname</th>
         <th scope="col">phone</th>
         <th scope="col">day</th>
+        <th scope="col">block_time</th>
         <th scope="col">rut</th>
         <th scope="col">email</th>
         <th scope="col">Action</th>
@@ -21,7 +22,8 @@
           <td><%= reservation.firstname %></td>
           <td><%= reservation.lastname %></td>
           <td><%= reservation.phone %></td>
-          <td><%= reservation.day %></td>
+          <td><%= reservation.work_day.name %></td>
+          <td><%= reservation.block_time.start.strftime("%I:%M %p") %> - <%= reservation.block_time.end.strftime("%I:%M %p") %></td>
           <td><%= reservation.email %></td>
           <td><%= reservation.rut %></td>
           <td><%= link_to "Show", reservation, class: 'btn btn-outline-info' %></td>
