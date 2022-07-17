@@ -1,0 +1,12 @@
+<div class="px-4 py-5 my-5 text-center">
+  <p style="color: green"><%= notice %></p>
+  <h1 class="display-5 fw-bold">Start: <%= @block_time.start.strftime("%I:%M %p") %></h1>
+  <h1 class="display-4 fw-bold">End: <%= @block_time.end.strftime("%I:%M %p") %></h1>
+  <div class="col-lg-6 mx-auto">
+    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+      <%= link_to "Edit this block time", edit_block_time_path(@block_time), class: 'btn btn-primary btn-lg px-4 gap-3' %>
+      <%= link_to "Back to block times", block_times_path, class: 'btn btn-outline-secondary btn-lg px-4' %>
+      <%= button_to "Destroy this block time", @block_time, method: :delete, class: 'btn btn-outline-danger btn-lg px-4' %>
+    </div>
+  </div>
+</div>

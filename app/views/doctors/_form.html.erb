@@ -1,0 +1,63 @@
+<%= form_with(model: doctor, class:"p-4 p-md-5 border rounded-3 bg-white") do |form| %>
+  <% if doctor.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+
+      <ul>
+        <% doctor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-floating mb-3">
+    <%= form.text_field :firstname, class: "form-control", id: "doctor_firstname", placeholder: "Julio" %>
+    <%= form.label :firstname, style: "display: block", class:"form-label" %>
+  </div>
+
+  <div class="form-floating mb-3">
+    <%= form.text_field :lastname, class: "form-control", id: "doctor_lastname", placeholder: "Baptista" %>
+    <%= form.label :lastname, style: "display: block", class:"form-label" %>
+  </div>
+
+  <div class="form-floating mb-3">
+    <%= form.number_field :phone, class: "form-control", id: "doctor_phone", placeholder: "12345678" %>
+    <%= form.label :phone, style: "display: block", class:"form-label" %>
+  </div>
+
+  <div class="form-floating mb-3">
+    <%= form.select :hospital_id, @hospitals.map{|h| [h.name, h.id]}, {}, { :class => 'form-select' } %>
+    <%= form.label :hospital_id, style: "display: block", class:"form-label" %>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <div class="p-3 border rounded-3">
+        <h3>Working days</h3>
+        <% @work_days.each do |work_day| %>
+          <div class="form-check form-switch mb-3">
+            <%= form.check_box :work_days, {checked: doctor.work_days.map(&:name).include?(work_day.name), multiple: true, class: "form-check-input", style: "display: block"}, work_day.name , nil %>
+            <label class="form-check-label" for="doctor[work_days]"><%= work_day.name %></label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class=" p-3 border rounded-3">
+        <h3>Block times</h3>
+        <% @block_times.each do |block_time| %>
+          <div class="form-check form-switch mb-3">
+            <%= form.check_box :block_times, {checked: doctor.block_times.map(&:id).include?(block_time.id), multiple: true, class: "form-check-input", style: "display: block"}, block_time.id , nil %>
+            <label class="form-check-label" for="doctor[work_days]"><%= block_time.start.strftime("%I:%M %p") %> - <%= block_time.end.strftime("%I:%M %p") %></label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="p-3">
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+<% end %>

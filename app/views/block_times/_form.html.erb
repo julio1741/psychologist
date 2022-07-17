@@ -1,0 +1,27 @@
+<%= form_with(model: block_time, class: "p-4 p-md-5 border rounded-3 bg-light") do |form| %>
+  <% if block_time.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(block_time.errors.count, "error") %> prohibited this block_time from being saved:</h2>
+
+      <ul>
+        <% block_time.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.time_field :start, class: "form-control", id: "block_time_start" %>
+    <%= form.label :start, style: "display: block", class:"form-label" %>
+  </div>
+
+  <div>
+    <%= form.time_field :end, class: "form-control", id: "block_time_end" %>
+    <%= form.label :end, style: "display: block", class:"form-label" %>
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+<% end %>

@@ -11,18 +11,26 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Hospitals</a>
+          <a class="nav-link active" href="/hospitals">Hospitals</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Doctors</a>
+          <a class="nav-link active" href="/doctors">Doctors</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Reservations</a>
+          <a class="nav-link active" href="/work_days">Work Days</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Appointments</a>
+          <a class="nav-link active" href="/block_times">Block Times</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/reservations">Reservations</a>
         </li>
 
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            Hola <span><%= current_user.username %></span>
+        </li>
       </ul>
       <span class="navbar-text">
         <a class="nav-link" data-method="delete" href="/logout">Logout</a>

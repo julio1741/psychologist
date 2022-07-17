@@ -1,0 +1,14 @@
+<%= javascript_include_tag 'reservation' %>
+<div class="container-fluid">
+  <div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">New reservation</h1>
+    <div class="col-lg-6 mx-auto">
+
+      <%= render "form", reservation: @reservation %>
+      <br>
+      <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+        <%= link_to "Back to reservations", reservations_path, class: 'btn btn-outline-secondary btn-lg px-4' %>
+      </div>
+    </div>
+  </div>
+</div>

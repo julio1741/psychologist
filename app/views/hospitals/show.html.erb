@@ -1,0 +1,12 @@
+<div class="px-4 py-5 my-5 text-center">
+  <p style="color: green"><%= notice %></p>
+  <h1 class="display-5 fw-bold"><%= @hospital.name %></h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+      <%= link_to "Edit this hospital", edit_hospital_path(@hospital), class: 'btn btn-primary btn-lg px-4 gap-3' %>
+      <%= link_to "Back to hospitals", hospitals_path, class: 'btn btn-outline-secondary btn-lg px-4' %>
+      <%= button_to "Destroy this hospital", @hospital, method: :delete, class: 'btn btn-outline-danger btn-lg px-4' %>
+    </div>
+  </div>
+</div>

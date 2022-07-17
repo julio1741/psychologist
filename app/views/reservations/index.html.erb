@@ -1,0 +1,37 @@
+<div class="container" id="reservations">
+  <p style="color: green"><%= notice %></p>
+  <h1>Reservations</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">firstname</th>
+        <th scope="col">lastname</th>
+        <th scope="col">phone</th>
+        <th scope="col">doctor</th>
+        <th scope="col">day</th>
+        <th scope="col">block_time</th>
+        <th scope="col">rut</th>
+        <th scope="col">email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr>
+          <th scope="row"><%= reservation.id %></th>
+          <td><%= reservation.firstname %></td>
+          <td><%= reservation.lastname %></td>
+          <td><%= reservation.phone %></td>
+          <td><%= reservation.doctor.firstname %></td>
+          <td><%= reservation.work_day.name %></td>
+          <td><%= reservation.block_time.start.strftime("%I:%M %p") %> - <%= reservation.block_time.end.strftime("%I:%M %p") %></td>
+          <td><%= reservation.rut %></td>
+          <td><%= reservation.email %></td>
+          <td><%= link_to "Show", reservation, class: 'btn btn-outline-info' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "New reservation", new_reservation_path, class: 'btn btn-outline-primary' %>
+</div>

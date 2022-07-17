@@ -1,0 +1,25 @@
+<div class="container" id="work_days">
+  <p style="color: green"><%= notice %></p>
+  <h1>Work days</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Day Number</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @work_days.each do |work_day| %>
+        <tr>
+          <th scope="row"><%= work_day.id %></th>
+          <td><%= work_day.name %></td>
+          <td><%= work_day.day_number %></td>
+          <td><%= link_to "Show", work_day, class: 'btn btn-outline-info' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "New work_day", new_work_day_path, class: 'btn btn-outline-primary' %>
+</div>

@@ -1,0 +1,29 @@
+<div class="container" id="hospitals">
+  <p style="color: green"><%= notice %></p>
+  <h1>Doctors</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Hospital</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @doctors.each do |doctor| %>
+        <tr>
+          <th scope="row"><%= doctor.id %></th>
+          <td><%= doctor.firstname %></td>
+          <td><%= doctor.lastname %></td>
+          <td><%= doctor.phone %></td>
+          <td><%= doctor.hospital.name %></td>
+          <td><%= link_to "Show", doctor, class: 'btn btn-outline-info' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "New doctor", new_doctor_path, class: 'btn btn-outline-primary' %>
+</div>
