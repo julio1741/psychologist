@@ -8,7 +8,8 @@ class ReservationMailer < ApplicationMailer
     @work_day = @reservation.work_day
     @block_time = @reservation.block_time
     @hospital = @doctor.hospital
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    app_host = ENV['APP_HOST']
+    @url  = "#{app_host}/reservations/#{@reservation.id}/cancel"
+    mail(to: @user.email, subject: 'Welcome to Psychologist App')
   end
 end
