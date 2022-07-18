@@ -26,7 +26,7 @@ class DoctorsController < ApplicationController
 
   def get_available_hours
     day = params[:day]
-    @block_times, @work_day = helpers.get_doctor_availability(day)
+    @block_times, @work_day = helpers.get_doctor_availability(day, @doctor)
     respond_to do |format|
       format.json { render :get_available_hours }
     end
