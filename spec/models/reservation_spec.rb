@@ -20,19 +20,46 @@ RSpec.describe Reservation, :type => :model do
     Doctor.create(firstname: 'Antonia', lastname: 'Bravo', hospital_id: hospital.id)
   end
 
+  subject(:reservation) do
+    described_class.new(
+      firstname: "Julio",
+      rut: "25176838-2",
+      email: user.email,
+      doctor_id: doctor.id,
+      work_day_id: work_day.id,
+      block_time_id: block_time.id,
+      user: user)
+  end
+
   describe 'reservation' do
     it "is valid with attributes" do
-      reservation = Reservation.new(firstname: "Julio", rut: "25176838-2", email: user.email)
-      reservation.user = user
-      reservation.doctor = doctor
-      reservation.work_day = work_day
-      reservation.block_time = block_time
       expect(reservation).to be_valid
     end
 
-    #it "is not valid without a title"
-    #it "is not valid without a description"
-    #it "is not valid without a start_date"
-    #it "is not valid without a end_date"
+    it "is not valid without firstname" do
+      reservation.firstname = nil
+      expect(reservation).to_not be_valid
+    end
+
+    it "is not valid with wrong rut" do
+      reservation.rut = "1111"
+      expect(reservation).to_not be_valid
+    end
+
+    it "belongs to a block_time" do
+      expect(reservation.block_time.class).to be BlockTime
+    end
+
+    it "belongs to a doctor" do
+      expect(reservation.doctor.class).to be Doctor
+    end
+
+    it "belongs to a work_day" do
+      expect(reservation.work_day.class).to be WorkDay
+    end
+
+    it "belongs to a user" do
+      expect(reservation.user.class).to be User
+    end
   end
 end
