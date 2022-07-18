@@ -42,13 +42,13 @@
   <% end %>
 
   <div class="form-floating mb-3">
-    <%= form.text_field :firstname, class: "form-control", id: "reservation_firstname", placeholder: "Julio" %>
-    <%= form.label :firstname, value: form.object.firstname || @firstname, style: "display: block", class:"form-label" %>
+    <%= form.text_field :firstname, value: form.object.firstname || @firstname, class: "form-control", id: "reservation_firstname", placeholder: "Julio" %>
+    <%= form.label :firstname, style: "display: block", class:"form-label" %>
   </div>
 
   <div class="form-floating mb-3">
-    <%= form.text_field :lastname, class: "form-control", id: "reservation_lastname", placeholder: "Baptista" %>
-    <%= form.label :lastname, value: form.object.lastname || @lastname, style: "display: block", class:"form-label" %>
+    <%= form.text_field :lastname, value: form.object.lastname || @lastname, class: "form-control", id: "reservation_lastname", placeholder: "Baptista" %>
+    <%= form.label :lastname, style: "display: block", class:"form-label" %>
   </div>
 
   <div class="form-floating mb-3">

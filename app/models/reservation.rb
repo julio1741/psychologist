@@ -7,6 +7,7 @@ class Reservation < ApplicationRecord
   validates_with RutValidator
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :firstname, :presence => true
+  validates :rut, :presence => true
 
   scope :by_user, ->(user_id) { where(user_id: user_id) }
 
