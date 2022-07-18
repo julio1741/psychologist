@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :reservations
+  resources :reservations do
+    member do
+      get :cancel, action: :cancel
+    end
+  end
   resources :block_times
   resources :work_days
   resources :doctors do

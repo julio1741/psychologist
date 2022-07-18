@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: %i[ show edit update destroy ]
+  before_action :set_reservation, only: %i[ show edit update destroy cancel]
   before_action :set_hospitals, only: %i[ new edit ]
   before_action :set_doctors, only: %i[ new edit ]
   before_action :set_personal_info, only: %i[ new edit ]
@@ -20,6 +20,10 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/1/edit
   def edit
+  end
+
+  def cancel
+
   end
 
   # POST /reservations or /reservations.json
@@ -61,7 +65,7 @@ class ReservationsController < ApplicationController
     @reservation.destroy
 
     respond_to do |format|
-      format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
+      format.html { redirect_to reservations_url, notice: "Reservation was successfully canceled." }
       format.json { head :no_content }
     end
   end
