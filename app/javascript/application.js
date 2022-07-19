@@ -6,5 +6,5 @@ import "jquery_ujs"
 import "popper"
 import "bootstrap"
 
+//= reservation.js
 //= require_tree .
-//= stub 'reservation'
