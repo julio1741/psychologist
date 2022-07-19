@@ -1,5 +1,5 @@
 
-$(document).ready(function(){
+jQuery(document).ready(function(){
 
   // hospital select behaviour
   $('select#reservation_hospital_id').on('change', function() {
