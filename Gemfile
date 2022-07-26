@@ -82,3 +82,5 @@ gem "jquery-rails"
 gem "bootstrap"
 gem "sassc-rails"
 gem 'chilean_rut'
+gem 'devise'
+gem 'activeadmin'
