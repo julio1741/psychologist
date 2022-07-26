@@ -11,9 +11,11 @@
   </head>
 
   <body>
+
     <% if logged_in? %>
       <%= render "layouts/nav_bar" %>
     <% end %>
     <%= yield %>
+
   </body>
 </html>

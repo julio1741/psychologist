@@ -97,3 +97,5 @@ doctor4.block_times << block_time12
 doctor4.block_times << block_time11
 doctor4.block_times << block_time10
 doctor4.block_times << block_time9
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
