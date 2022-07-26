@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
   before_action :set_hospitals, only: %i[ new edit ]
   before_action :set_doctors, only: %i[ new edit ]
   before_action :set_personal_info, only: %i[ new edit ]
+  before_action :not_authorized_reservation, only: %i[ show edit update ]
 
   # GET /reservations or /reservations.json
   def index
@@ -11,6 +12,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/1 or /reservations/1.json
   def show
+
   end
 
   # GET /reservations/new
@@ -71,6 +73,11 @@ class ReservationsController < ApplicationController
   end
 
   private
+    def not_authorized_reservation
+      if @reservation.user != current_user
+        redirect_to reservations_path, notice: "¡You are not authorized to view this page!"
+      end
+    end
     def set_personal_info
       split_name = current_user.username.strip.split()
       @email = current_user.try(:email)
