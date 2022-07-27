@@ -12,7 +12,7 @@ class Reservation < ApplicationRecord
   validates :work_day_id, :presence => true
   validates :block_time_id, :presence => true
   validates :doctor_id, :presence => true
-  validates :phone,  :presence => {:message => 'must be 10-15 digit and numeric'},
+  validates :phone,  :presence => true,
                      :numericality => true,
                      :length => { :minimum => 10, :maximum => 15 }
   validates_uniqueness_of :doctor_id, scope: %i[day work_day_id block_time_id], message: "is busy, pick another block"
