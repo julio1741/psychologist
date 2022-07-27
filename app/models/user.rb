@@ -2,6 +2,7 @@ class User < ApplicationRecord
   validates :username, :email, presence: true
   validates :username, :email, uniqueness: true
   has_many :reservations
+  has_secure_password  #password validations
 
   def self.from_omniauth(auth)
     #Creates a new user only if it doesn't exist

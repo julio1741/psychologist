@@ -1,0 +1,25 @@
+<div class="center" align="center">
+  <%= render partial: 'layouts/errors', locals: {object: @user} %>
+  <%= form_for (@user) do |f| %>
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, required:true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, required:true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, required:true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, required:true %>
+    </div>
+    <div class="form-group">
+      <%= f.submit %>
+      <br><br>
+      <button type="button" class="loginBtn loginBtn--google"><%= link_to "Sign Up with Google", '/auth/google_oauth2' %></button>
+  <% end %>
+</div>
