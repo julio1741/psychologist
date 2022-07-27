@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
-        format.html { redirect_to root_path, notice: "Logged in successfully created." }
+        format.html { redirect_to root_path, notice: "Logged in!." }
       else
         flash[:error] = "Sorry, your username or password was incorrect"
         format.html { render :login, status: :unprocessable_entity }

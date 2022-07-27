@@ -1,25 +1,52 @@
-<div class="center" align="center">
-  <%= render partial: 'layouts/errors', locals: {object: @user} %>
-  <%= form_for (@user) do |f| %>
-    <div class="form-group">
-      <%= f.label :username %>
-      <%= f.text_field :username, required:true %>
+<div class="container-fluid">
+  <div class="px-4 py-5 my-5 text-center">
+    <div class="col-lg-6 mx-auto">
+      <div class="row">
+        <div class="col-6">
+          <div class="p-3 border rounded-3">
+            <h3>Log in with your credentials:</h3>
+            <%= render partial: 'layouts/errors', locals: {object: @user} %>
+            <%= form_for (@user) do |f| %>
+              <div class="form-floating mb-3">
+                <%= f.text_field :username, class: "form-control" %>
+                <%= f.label :username, style: "display: block", class:"form-label" %>
+              </div>
+              <div class="form-floating mb-3">
+                <%= f.email_field :email, class: "form-control" %>
+                <%= f.label :email, style: "display: block", class:"form-label" %>
+              </div>
+               <div class="form-floating mb-3">
+                <%= f.password_field :password, class: "form-control" %>
+                <%= f.label :password, style: "display: block", class:"form-label" %>
+              </div>
+               <div class="form-floating mb-3">
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+                <%= f.label :password_confirmation, style: "display: block", class:"form-label" %>
+              </div>    
+                
+              <div class="row g-1">
+                <div class="col-12">
+                  <div class="d-flex  align-items-center justify-content-center">
+                    <button type="submit" class="btn btn-primary">Create User</button>
+                  </div>
+                </div>
+              </div>
+              <% end %>  
+          </div>          
+        </div>
+        <div class="col-6 ">
+          <div class="row g-1 ">
+            <div class="col-12">
+              <div class="p-3 border">
+                <h3>Or with your gmail account:</h3>
+                <div class="d-flex  align-items-center justify-content-center">
+                  <%= link_to "Sign Up with Google", '/auth/google_oauth2', class: 'btn btn-outline-danger' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, required:true %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, required:true %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, required:true %>
-    </div>
-    <div class="form-group">
-      <%= f.submit %>
-      <br><br>
-      <button type="button" class="loginBtn loginBtn--google"><%= link_to "Sign Up with Google", '/auth/google_oauth2' %></button>
-  <% end %>
+  </div>
 </div>
