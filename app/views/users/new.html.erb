@@ -5,21 +5,29 @@
         <div class="col-6">
           <div class="p-3 border rounded-3">
             <h3>Log in with your credentials:</h3>
-            <%= flash[:error] %>
-            <%= form_for @user, url: '/login' do |f| %>
+            <%= render partial: 'layouts/errors', locals: {object: @user} %>
+            <%= form_for (@user) do |f| %>
               <div class="form-floating mb-3">
                 <%= f.text_field :username, class: "form-control" %>
                 <%= f.label :username, style: "display: block", class:"form-label" %>
               </div>
+              <div class="form-floating mb-3">
+                <%= f.email_field :email, class: "form-control" %>
+                <%= f.label :email, style: "display: block", class:"form-label" %>
+              </div>
                <div class="form-floating mb-3">
                 <%= f.password_field :password, class: "form-control" %>
                 <%= f.label :password, style: "display: block", class:"form-label" %>
+              </div>
+               <div class="form-floating mb-3">
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+                <%= f.label :password_confirmation, style: "display: block", class:"form-label" %>
               </div>    
                 
               <div class="row g-1">
                 <div class="col-12">
                   <div class="d-flex  align-items-center justify-content-center">
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary">Create User</button>
                   </div>
                 </div>
               </div>
@@ -32,7 +40,7 @@
               <div class="p-3 border">
                 <h3>Or with your gmail account:</h3>
                 <div class="d-flex  align-items-center justify-content-center">
-                  <%= link_to "Log In with Google", '/auth/google_oauth2', class: 'btn btn-outline-danger' %>
+                  <%= link_to "Sign Up with Google", '/auth/google_oauth2', class: 'btn btn-outline-danger' %>
                 </div>
               </div>
             </div>

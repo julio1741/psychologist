@@ -1,29 +1,14 @@
 <div class="container">
-  <div class="row g-1">
-    <div class="col-12">
-      <div class="p-3 border bg-light">
+  <p style="color: green"><%= notice %></p>
+  <div class="p-5 my-4 bg-light rounded-3">
+      <div class="d-flex  align-items-center justify-content-center">
+        <h1 >Thank you for using Psychologist Scheduller</h1>
+      </div>
+      <p class="lead">In this app you can book your appointment with the doctor of your choice, you can also cancel the appointment if you cannot attend.</p>
+      <% unless logged_in?%>
         <div class="d-flex  align-items-center justify-content-center">
-          <h5>Thank you for using Psychologist Scheduller</h5>
+          <%= link_to "Home", root_path, class: 'btn btn-outline-warning' %>
         </div>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="p-3 border bg-light">
-        <% unless logged_in?%>
-          <div class="d-flex  align-items-center justify-content-center">
-            <%= link_to "Home", root_path, class: 'btn btn-outline-warning' %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="p-3 border bg-light">
-        <% unless logged_in?%>
-          <div class="d-flex  align-items-center justify-content-center">
-            <%= render 'layouts/login_signup' %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+      <% end %>
   </div>
 </div>

@@ -1,37 +1,38 @@
-<div class="container" id="reservations">
-  <p style="color: green"><%= notice %></p>
-  <h1>Reservations</h1>
-  <table class="table table-striped table-responsive">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">firstname</th>
-        <th scope="col">lastname</th>
-        <th scope="col">phone</th>
-        <th scope="col">doctor</th>
-        <th scope="col">day</th>
-        <th scope="col">block_time</th>
-        <th scope="col">rut</th>
-        <th scope="col">email</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @reservations.each do |reservation| %>
-        <tr>
-          <th scope="row"><%= reservation.id %></th>
-          <td><%= reservation.firstname %></td>
-          <td><%= reservation.lastname %></td>
-          <td><%= reservation.phone %></td>
-          <td><%= reservation.doctor.firstname %></td>
-          <td><%= reservation.work_day.name %></td>
-          <td><%= reservation.block_time.start.strftime("%I:%M %p") %> - <%= reservation.block_time.end.strftime("%I:%M %p") %></td>
-          <td><%= reservation.rut %></td>
-          <td><%= reservation.email %></td>
-          <td><%= link_to "Show", reservation, class: 'btn btn-outline-info' %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= link_to "New reservation", new_reservation_path, class: 'btn btn-outline-primary' %>
-</div>
+<section class="bg-light py-4 my-5">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <h2 class="mb-3 text-info">Your Reservations</h2>
+              <%= link_to "New reservation", new_reservation_path, class: 'btn btn-outline-primary' %>
+          </div>
+          <% @reservations.each do |reservation| %>
+            <div class="col-md-6 col-lg-4">
+                <div class="card my-3">
+                  <div class="card-thumbnail">
+                    <div class="d-flex  align-items-center justify-content-center">
+                      <h3 class="card-title"><a href="#" class="text-secondary">Reservation #<%= reservation.id %></a></h3>
+                    </div>
+                    <div class="d-flex  align-items-center justify-content-center">
+                        <%= image_tag "reservation.jpg" %>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex  align-items-center justify-content-center">
+                      <p class="card-text">
+                        <strong>Doctor:</strong> <%= reservation.doctor.firstname %>
+                        <br>
+                        <strong>day:</strong> <%= reservation.work_day.name %>
+                         <br>
+                         <strong>Hour:</strong> <%= reservation.block_time.start.strftime("%I:%M %p") %> - <%= reservation.block_time.end.strftime("%I:%M %p") %>
+                      </p>
+                    </div>
+                    <div class="d-flex  align-items-center justify-content-center">
+                      <%= link_to "Cancel", cancel_reservation_path(reservation), class: 'btn btn-outline-danger' %>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          <% end %>
+      </div>
+  </div>
+</section>

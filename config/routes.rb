@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only: [:new, :create, :edit, :update]
 
+  get '/signup' => 'users#new'
   root 'sessions#welcome'
   get '/goodbye' => 'sessions#goodbye'
 

@@ -3,8 +3,22 @@ class SessionsController < ApplicationController
   skip_before_action :require_login
 
   def new
-    #@user = User.new
+    @user = User.new
     render :login
+  end
+
+  def create
+    # normal create action
+    @user = User.find_or_create_by(username: params[:user][:username])
+    respond_to do |format|
+      if @user && @user.authenticate(params[:user][:password])
+        session[:user_id] = @user.id
+        format.html { redirect_to root_path, notice: "Logged in!." }
+      else
+        flash[:error] = "Sorry, your username or password was incorrect"
+        format.html { render :login, status: :unprocessable_entity }
+      end
+    end
   end
 
   def omniauth
