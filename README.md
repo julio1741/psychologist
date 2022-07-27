@@ -68,11 +68,3 @@ With these steps everything should be running on **port 3000**.
 ## Psychologist
 
 In the app you can only schedule your hours with the doctor in 'My reservations' and then you click on 'New reservation', fill out the form with the doctor you want plus your personal data and at the end you should receive an email with the data of the reserve.
-
-You can also visit the following URLs within the app:
-
-- /users
-- /doctors
-- /hospitals
-- /work_days
-- /block_times
