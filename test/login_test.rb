@@ -17,14 +17,14 @@ class LoginTest < ActionDispatch::IntegrationTest
     assert_equal 200, status
     login(:julio, 'juliooo')
     assert_equal "/login", path
-    assert_select "p", "Sorry, your username or password was incorrect"   
+    assert_select "p", "Sorry, your username or password was incorrect"
   end
 
-  private 
+  private
 
   def login(user, password)
     user = users(user)
     # post the login and follow through to the home page
     post "/login", params: { user: { username: user.username, password: password } }
   end
-end 
+end

@@ -25,8 +25,8 @@ class ReservationsTest < ActionDispatch::IntegrationTest
     end
 
     assert_difference 'Reservation.count' do
-      make_reservation({ 
-                         reservation: { 
+      make_reservation({
+                         reservation: {
                            firstname: "Julio",
                            rut: "25176838-2",
                            email: users(:julio).email,
@@ -44,8 +44,8 @@ class ReservationsTest < ActionDispatch::IntegrationTest
 
     assert_no_difference 'Reservation.count' do
       # making same reservation
-      make_reservation({ 
-                         reservation: { 
+      make_reservation({
+                         reservation: {
                            firstname: "Julio",
                            rut: "25176838-2",
                            email: users(:julio).email,
@@ -61,7 +61,7 @@ class ReservationsTest < ActionDispatch::IntegrationTest
     assert_equal 422, status
   end
 
-  private 
+  private
 
   def login(user, password)
     user = users(user)
@@ -71,4 +71,4 @@ class ReservationsTest < ActionDispatch::IntegrationTest
   def make_reservation params
     post "/reservations", params: params
   end
-end 
+end

@@ -12,4 +12,3 @@ class Doctor < ApplicationRecord
                      :numericality => true,
                      :length => { :minimum => 10, :maximum => 15 }
 end
-
