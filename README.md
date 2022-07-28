@@ -62,6 +62,17 @@ docker-compose run web rails db:seed
 docker-compose up
 ```
 
+## Test
+
+You can run some test and specs:
+
+```sh
+cd psychologist
+docker-compose run web rspec
+docker compose run web rails test
+```
+
+
 This will create the psychologist image and pull in the necessary dependencies.
 With these steps everything should be running on **port 3000**.
 
