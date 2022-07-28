@@ -3,7 +3,7 @@ class ReservationsController < ApplicationController
   before_action :set_hospitals, only: %i[ new edit ]
   before_action :set_doctors, only: %i[ new edit ]
   before_action :set_personal_info, only: %i[ new edit ]
-  before_action :not_authorized_reservation, only: %i[ show edit update ]
+  before_action :not_authorized_reservation, only: %i[ show edit update cancel]
 
   # GET /reservations or /reservations.json
   def index
@@ -35,7 +35,7 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       @reservation.validate
       if @reservation.save
-        format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully created." }
+        format.html { redirect_to reservations_url, notice: "Reservation was successfully created." }
         format.json { render :show, status: :created, location: @reservation }
       else
         set_hospitals

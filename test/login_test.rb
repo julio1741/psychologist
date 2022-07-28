@@ -6,7 +6,7 @@ class LoginTest < ActionDispatch::IntegrationTest
   test "login with valid credentials" do
     get "/login"
     assert_equal 200, status
-    maria = login(:maria, 'maria')
+    login(:maria, 'maria')
     follow_redirect!
     assert_equal 200, status
     assert_equal "/", path
@@ -15,7 +15,7 @@ class LoginTest < ActionDispatch::IntegrationTest
   test "login with wrong credentials" do
     get "/login"
     assert_equal 200, status
-    julio = login(:julio, 'juliooo')
+    login(:julio, 'juliooo')
     assert_equal "/login", path
     assert_select "p", "Sorry, your username or password was incorrect"   
   end
