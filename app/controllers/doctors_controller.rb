@@ -89,43 +89,43 @@ class DoctorsController < ApplicationController
 
   private
 
-    def add_working_days(doctor, work_days=[])
-      return if work_days.blank?
+  def add_working_days(doctor, work_days=[])
+    return if work_days.blank?
 
-      doctor.work_days.destroy_all
-      work_days.each do |work_day|
-        doctor.work_days << WorkDay.find_by(name: work_day)
-      end
+    doctor.work_days.destroy_all
+    work_days.each do |work_day|
+      doctor.work_days << WorkDay.find_by(name: work_day)
     end
+  end
 
-    def add_working_hours(doctor, block_times=[])
-      return if block_times.blank?
+  def add_working_hours(doctor, block_times=[])
+    return if block_times.blank?
 
-      doctor.block_times.destroy_all
-      block_times.each do |block_time|
-        doctor.block_times << BlockTime.find_by(id: block_time)
-      end
+    doctor.block_times.destroy_all
+    block_times.each do |block_time|
+      doctor.block_times << BlockTime.find_by(id: block_time)
     end
+  end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_doctor
-      @doctor = Doctor.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_doctor
+    @doctor = Doctor.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def doctor_params
-      params.require(:doctor).permit(:firstname, :lastname, :phone, :hospital_id, :work_days, :block_times)
-    end
+  # Only allow a list of trusted parameters through.
+  def doctor_params
+    params.require(:doctor).permit(:firstname, :lastname, :phone, :hospital_id, :work_days, :block_times)
+  end
 
-    def set_hospitals
-      @hospitals = Hospital.all
-    end
+  def set_hospitals
+    @hospitals = Hospital.all
+  end
 
-    def set_work_days
-      @work_days = WorkDay.all
-    end
+  def set_work_days
+    @work_days = WorkDay.all
+  end
 
-    def set_block_times
-      @block_times = BlockTime.all
-    end
+  def set_block_times
+    @block_times = BlockTime.all
+  end
 end

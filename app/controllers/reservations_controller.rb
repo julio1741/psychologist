@@ -72,34 +72,34 @@ class ReservationsController < ApplicationController
 
   private
 
-    def not_authorized_reservation
-      if @reservation.user != current_user
-        redirect_to reservations_path, notice: "¡You are not authorized to view this page!"
-      end
+  def not_authorized_reservation
+    if @reservation.user != current_user
+      redirect_to reservations_path, notice: "¡You are not authorized to view this page!"
     end
+  end
 
-    def set_personal_info
-      split_name = current_user.username.strip.split()
-      @email = current_user.try(:email)
-      @firstname = split_name.try(:first)
-      @lastname = split_name.try(:last)
-    end
+  def set_personal_info
+    split_name = current_user.username.strip.split()
+    @email = current_user.try(:email)
+    @firstname = split_name.try(:first)
+    @lastname = split_name.try(:last)
+  end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reservation
-      @reservation = Reservation.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def reservation_params
-      params.require(:reservation).permit(:firstname, :lastname, :phone, :day, :rut, :email, :block_time_id, :user_id, :work_day_id, :doctor_id)
-    end
+  # Only allow a list of trusted parameters through.
+  def reservation_params
+    params.require(:reservation).permit(:firstname, :lastname, :phone, :day, :rut, :email, :block_time_id, :user_id, :work_day_id, :doctor_id)
+  end
 
-    def set_hospitals
-      @hospitals = Hospital.all
-    end
+  def set_hospitals
+    @hospitals = Hospital.all
+  end
 
-    def set_doctors
-      @doctors = Doctor.all
-    end
+  def set_doctors
+    @doctors = Doctor.all
+  end
 end

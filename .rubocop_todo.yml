@@ -8,20 +8,6 @@
 
 
 
-
-# Offense count: 24
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: normal, indented_internal_methods
-Layout/IndentationConsistency:
-  Exclude:
-    - 'app/controllers/block_times_controller.rb'
-    - 'app/controllers/doctors_controller.rb'
-    - 'app/controllers/hospitals_controller.rb'
-    - 'app/controllers/reservations_controller.rb'
-    - 'app/controllers/work_days_controller.rb'
-    - 'spec/models/doctors_spec.rb'
-
 # Offense count: 23
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: Width, AllowedPatterns, IgnoredPatterns.

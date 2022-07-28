@@ -59,13 +59,13 @@ class BlockTimesController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_block_time
-      @block_time = BlockTime.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_block_time
+    @block_time = BlockTime.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def block_time_params
-      params.require(:block_time).permit(:start, :end)
-    end
+  # Only allow a list of trusted parameters through.
+  def block_time_params
+    params.require(:block_time).permit(:start, :end)
+  end
 end
