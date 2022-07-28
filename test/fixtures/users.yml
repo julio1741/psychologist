@@ -1,0 +1,9 @@
+julio:
+  username: "julio"
+  email: "julio1741@gmail.com"
+  password_digest: "$2a$12$ij6pXcAYYYQhvqwDWZJTveil1STHee1ArzzMvhpgIymN7VVOINt1q"
+
+maria:
+  username: "maria"
+  email: "maria@gmail.com"
+  password_digest: "$2a$12$V0PFiOduHG.X93pido8gquj.pJP/q7HVzguwPN/dZiOiJFUFI/1bG"

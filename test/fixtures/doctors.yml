@@ -1,0 +1,11 @@
+antonia:
+  firstname: "Antonia"                                                            
+  lastname: "Bravo"                                                                
+  phone: "95612365478"
+  hospital: santa_maria
+
+ricardo:
+  firstname: "Ricargo"                                                            
+  lastname: "Guillen"                                                                
+  phone: "95612365478"
+  hospital: integra_medica
