@@ -1,5 +1,5 @@
 class WorkDaysController < ApplicationController
-  before_action :set_work_day, only: %i[ show edit update destroy ]
+  before_action :set_work_day, only: %i[show edit update destroy]
 
   # GET /work_days or /work_days.json
   def index

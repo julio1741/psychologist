@@ -1,5 +1,5 @@
 class BlockTimesController < ApplicationController
-  before_action :set_block_time, only: %i[ show edit update destroy ]
+  before_action :set_block_time, only: %i[show edit update destroy]
 
   # GET /block_times or /block_times.json
   def index

@@ -8,7 +8,7 @@ class Doctor < ApplicationRecord
   has_many :block_times, through: :working_hours
 
   has_many :reservations
-  validates :phone,  :presence => {:message => 'must be 10-15 digit and numeric'},
+  validates :phone,  :presence => { :message => 'must be 10-15 digit and numeric' },
                      :numericality => true,
                      :length => { :minimum => 10, :maximum => 15 }
 end

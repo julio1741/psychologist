@@ -5,7 +5,7 @@ module DoctorsHelper
     return [[], nil] if doctor_working_day.nil?
 
     # remove reserved block times
-    reservations = Reservation.joins(:doctor, :block_time, :work_day).where(doctor_id: doctor.id, work_day: {name: day_date})
+    reservations = Reservation.joins(:doctor, :block_time, :work_day).where(doctor_id: doctor.id, work_day: { name: day_date })
     reserved_block_times = reservations.map(&:block_time)
     [(doctor.block_times - reserved_block_times), doctor_working_day]
   end

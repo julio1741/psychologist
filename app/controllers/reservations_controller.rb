@@ -1,9 +1,9 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: %i[ show edit update destroy cancel]
-  before_action :set_hospitals, only: %i[ new edit ]
-  before_action :set_doctors, only: %i[ new edit ]
-  before_action :set_personal_info, only: %i[ new edit ]
-  before_action :not_authorized_reservation, only: %i[ show edit update cancel]
+  before_action :set_reservation, only: %i[show edit update destroy cancel]
+  before_action :set_hospitals, only: %i[new edit]
+  before_action :set_doctors, only: %i[new edit]
+  before_action :set_personal_info, only: %i[new edit]
+  before_action :not_authorized_reservation, only: %i[show edit update cancel]
 
   # GET /reservations or /reservations.json
   def index

@@ -1,8 +1,8 @@
 class DoctorsController < ApplicationController
-  before_action :set_doctor, only: %i[ show edit update destroy get_available_hours]
-  before_action :set_hospitals, only: %i[ new edit index by_hospital ]
-  before_action :set_work_days, only: %i[ new edit index ]
-  before_action :set_block_times, only: %i[ new edit index ]
+  before_action :set_doctor, only: %i[show edit update destroy get_available_hours]
+  before_action :set_hospitals, only: %i[new edit index by_hospital]
+  before_action :set_work_days, only: %i[new edit index]
+  before_action :set_block_times, only: %i[new edit index]
 
   # GET /doctors or /doctors.json
   def index
@@ -89,7 +89,7 @@ class DoctorsController < ApplicationController
 
   private
 
-  def add_working_days(doctor, work_days=[])
+  def add_working_days(doctor, work_days = [])
     return if work_days.blank?
 
     doctor.work_days.destroy_all
@@ -98,7 +98,7 @@ class DoctorsController < ApplicationController
     end
   end
 
-  def add_working_hours(doctor, block_times=[])
+  def add_working_hours(doctor, block_times = [])
     return if block_times.blank?
 
     doctor.block_times.destroy_all
