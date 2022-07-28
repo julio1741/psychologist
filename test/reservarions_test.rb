@@ -26,18 +26,18 @@ class ReservationsTest < ActionDispatch::IntegrationTest
 
     assert_difference 'Reservation.count' do
       make_reservation({ 
-        reservation: { 
-          firstname: "Julio",
-          rut: "25176838-2",
-          email: users(:julio).email,
-          doctor_id: doctors(:ricardo).id,
-          work_day_id: work_days(:monday).id,
-          day:'2022-07-25',
-          phone:'95612365478',
-          block_time_id: block_times(:block_time_1).id,
-          user_id: users(:julio).id
-        }
-      })
+                         reservation: { 
+                           firstname: "Julio",
+                           rut: "25176838-2",
+                           email: users(:julio).email,
+                           doctor_id: doctors(:ricardo).id,
+                           work_day_id: work_days(:monday).id,
+                           day: '2022-07-25',
+                           phone: '95612365478',
+                           block_time_id: block_times(:block_time_1).id,
+                           user_id: users(:julio).id
+                         }
+                       })
     end
     follow_redirect!
     assert_equal "/reservations", path
@@ -45,18 +45,18 @@ class ReservationsTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Reservation.count' do
       # making same reservation
       make_reservation({ 
-        reservation: { 
-          firstname: "Julio",
-          rut: "25176838-2",
-          email: users(:julio).email,
-          doctor_id: doctors(:ricardo).id,
-          work_day_id: work_days(:monday).id,
-          day:'2022-07-25',
-          phone:'95612365478',
-          block_time_id: block_times(:block_time_1).id,
-          user_id: users(:julio).id
-        }
-      })
+                         reservation: { 
+                           firstname: "Julio",
+                           rut: "25176838-2",
+                           email: users(:julio).email,
+                           doctor_id: doctors(:ricardo).id,
+                           work_day_id: work_days(:monday).id,
+                           day: '2022-07-25',
+                           phone: '95612365478',
+                           block_time_id: block_times(:block_time_1).id,
+                           user_id: users(:julio).id
+                         }
+                       })
     end
     assert_equal 422, status
   end

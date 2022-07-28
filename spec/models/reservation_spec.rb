@@ -27,8 +27,8 @@ RSpec.describe Reservation, :type => :model do
       email: user.email,
       doctor_id: doctor.id,
       work_day_id: work_day.id,
-      day:'2022-07-26',
-      phone:'95612365478',
+      day: '2022-07-26',
+      phone: '95612365478',
       block_time_id: block_time.id,
       user: user)
   end
