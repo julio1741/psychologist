@@ -21,7 +21,7 @@ class DoctorsController < ApplicationController
   end
 
   def get_doctor_working_hours
-     @working_hours = @doctor.working_hours
+    @working_hours = @doctor.working_hours
   end
 
   def get_available_hours

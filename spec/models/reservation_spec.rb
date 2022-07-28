@@ -30,7 +30,8 @@ RSpec.describe Reservation, :type => :model do
       day: '2022-07-26',
       phone: '95612365478',
       block_time_id: block_time.id,
-      user: user)
+      user: user
+    )
   end
 
   describe 'reservation' do

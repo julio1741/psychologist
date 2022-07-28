@@ -8,46 +8,6 @@
 
 
 
-# Offense count: 23
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: Width, AllowedPatterns, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'app/controllers/block_times_controller.rb'
-    - 'app/controllers/doctors_controller.rb'
-    - 'app/controllers/hospitals_controller.rb'
-    - 'app/controllers/reservations_controller.rb'
-    - 'app/controllers/work_days_controller.rb'
-    - 'db/migrate/20220727031240_rename_password_to_users.rb'
-    - 'spec/models/doctors_spec.rb'
-
-# Offense count: 7
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowDoxygenCommentStyle, AllowGemfileRubyComment.
-Layout/LeadingCommentSpace:
-  Exclude:
-    - 'app/controllers/sessions_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/models/user.rb'
-    - 'spec/rails_helper.rb'
-
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: symmetrical, new_line, same_line
-Layout/MultilineHashBraceLayout:
-  Exclude:
-    - 'config/environments/development.rb'
-    - 'config/environments/production.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: symmetrical, new_line, same_line
-Layout/MultilineMethodCallBraceLayout:
-  Exclude:
-    - 'spec/models/reservation_spec.rb'
-
 # Offense count: 48
 # This cop supports safe autocorrection (--autocorrect).
 Layout/SpaceAfterColon:

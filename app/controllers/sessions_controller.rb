@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
   def welcome
   end
 
-  #logout
+  # logout
   def destroy
     session.clear
     redirect_to '/goodbye'
