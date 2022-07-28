@@ -8,15 +8,6 @@
 
 
 
-# Offense count: 48
-# This cop supports safe autocorrection (--autocorrect).
-Layout/SpaceAfterColon:
-  Exclude:
-    - 'db/seeds.rb'
-    - 'spec/models/doctors_spec.rb'
-    - 'spec/models/reservation_spec.rb'
-    - 'test/reservarions_test.rb'
-
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 Layout/SpaceAfterComma:

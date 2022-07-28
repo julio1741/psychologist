@@ -1,15 +1,15 @@
 require "rails_helper" 
 RSpec.describe Reservation, :type => :model do
   subject(:user) do
-    User.create(username:"Maria", email:"a@a.com")
+    User.create(username: "Maria", email: "a@a.com")
   end
 
   subject(:block_time) do
-    BlockTime.create(start:'8:00', end:'9:00')
+    BlockTime.create(start: '8:00', end: '9:00')
   end
 
   subject(:work_day) do
-    WorkDay.create(name: 'sunday', day_number:0)
+    WorkDay.create(name: 'sunday', day_number: 0)
   end
 
   subject(:hospital) do
@@ -17,7 +17,7 @@ RSpec.describe Reservation, :type => :model do
   end
 
   subject(:doctor) do
-    Doctor.create(firstname: 'Antonia', lastname: 'Bravo', hospital_id: hospital.id, phone:'95612365478')
+    Doctor.create(firstname: 'Antonia', lastname: 'Bravo', hospital_id: hospital.id, phone: '95612365478')
   end
 
   subject(:reservation) do

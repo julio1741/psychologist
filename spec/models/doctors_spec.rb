@@ -5,11 +5,11 @@ RSpec.describe Doctor, :type => :model do
   end
 
   subject(:block_time) do
-    BlockTime.create(start:'8:00', end:'9:00')
+    BlockTime.create(start: '8:00', end: '9:00')
   end
 
   subject(:work_day) do
-    WorkDay.create(name: 'monday', day_number:0)
+    WorkDay.create(name: 'monday', day_number: 0)
   end
 
   subject(:doctor) do
