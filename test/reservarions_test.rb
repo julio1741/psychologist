@@ -71,5 +71,4 @@ class ReservationsTest < ActionDispatch::IntegrationTest
   def make_reservation params
     post "/reservations", params: params
   end
-
 end 

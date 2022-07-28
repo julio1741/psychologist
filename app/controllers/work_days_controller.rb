@@ -58,6 +58,7 @@ class WorkDaysController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_work_day
       @work_day = WorkDay.find(params[:id])

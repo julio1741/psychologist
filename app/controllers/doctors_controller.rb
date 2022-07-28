@@ -36,7 +36,6 @@ class DoctorsController < ApplicationController
   def show
   end
 
-
   # GET /doctors/new
   def new
     @doctor = Doctor.new
@@ -89,6 +88,7 @@ class DoctorsController < ApplicationController
   end
 
   private
+
     def add_working_days(doctor, work_days=[])
       return if work_days.blank?
 

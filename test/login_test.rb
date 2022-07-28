@@ -27,5 +27,4 @@ class LoginTest < ActionDispatch::IntegrationTest
     # post the login and follow through to the home page
     post "/login", params: { user: { username: user.username, password: password } }
   end
-
 end 

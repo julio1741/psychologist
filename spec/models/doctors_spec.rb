@@ -22,10 +22,8 @@ RSpec.describe Doctor, :type => :model do
     end
   end
 
-
   describe DoctorsHelper, type: :helper do
    describe '#get_doctor_availability' do
-
       it 'returns a block_time' do
         doctor.work_days << work_day
         doctor.block_times << block_time

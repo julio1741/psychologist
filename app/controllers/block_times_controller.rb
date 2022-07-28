@@ -58,6 +58,7 @@ class BlockTimesController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_block_time
       @block_time = BlockTime.find(params[:id])

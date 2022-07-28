@@ -1,5 +1,4 @@
 ActiveAdmin.register Doctor do
-
   permit_params :firstname, :lastname, :phone, :hospital_id, work_day_ids: [], block_time_ids: []
 
   form do |f|

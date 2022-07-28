@@ -7,76 +7,8 @@
 # versions of RuboCop, may require this file to be generated again.
 
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Layout/EmptyLineAfterMagicComment:
-  Exclude:
-    - 'app/admin/dashboard.rb'
 
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EmptyLineBetweenMethodDefs, EmptyLineBetweenClassDefs, EmptyLineBetweenModuleDefs, AllowAdjacentOneLineDefs, NumberOfEmptyLines.
-Layout/EmptyLineBetweenDefs:
-  Exclude:
-    - 'app/controllers/doctors_controller.rb'
-    - 'app/controllers/reservations_controller.rb'
 
-# Offense count: 4
-# This cop supports safe autocorrection (--autocorrect).
-Layout/EmptyLines:
-  Exclude:
-    - 'app/controllers/doctors_controller.rb'
-    - 'db/migrate/20220726022850_devise_create_admin_users.rb'
-    - 'db/seeds.rb'
-    - 'spec/models/doctors_spec.rb'
-
-# Offense count: 5
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: around, only_before
-Layout/EmptyLinesAroundAccessModifier:
-  Exclude:
-    - 'app/controllers/block_times_controller.rb'
-    - 'app/controllers/doctors_controller.rb'
-    - 'app/controllers/hospitals_controller.rb'
-    - 'app/controllers/reservations_controller.rb'
-    - 'app/controllers/work_days_controller.rb'
-
-# Offense count: 4
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, no_empty_lines
-Layout/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'app/admin/admin_users.rb'
-    - 'app/admin/doctors.rb'
-    - 'config/environments/development.rb'
-    - 'spec/models/doctors_spec.rb'
-
-# Offense count: 5
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
-Layout/EmptyLinesAroundClassBody:
-  Exclude:
-    - 'app/controllers/reservations_controller.rb'
-    - 'app/controllers/sessions_controller.rb'
-    - 'test/home_test.rb'
-    - 'test/login_test.rb'
-    - 'test/reservarions_test.rb'
-
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Layout/EmptyLinesAroundMethodBody:
-  Exclude:
-    - 'app/controllers/reservations_controller.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowForAlignment, AllowBeforeTrailingComments, ForceEqualSignAlignment.
-Layout/ExtraSpacing:
-  Exclude:
-    - 'app/mailers/reservation_mailer.rb'
 
 # Offense count: 4
 # This cop supports safe autocorrection (--autocorrect).

@@ -12,7 +12,6 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/1 or /reservations/1.json
   def show
-
   end
 
   # GET /reservations/new
@@ -25,7 +24,6 @@ class ReservationsController < ApplicationController
   end
 
   def cancel
-
   end
 
   # POST /reservations or /reservations.json
@@ -73,17 +71,20 @@ class ReservationsController < ApplicationController
   end
 
   private
+
     def not_authorized_reservation
       if @reservation.user != current_user
         redirect_to reservations_path, notice: "¡You are not authorized to view this page!"
       end
     end
+
     def set_personal_info
       split_name = current_user.username.strip.split()
       @email = current_user.try(:email)
       @firstname = split_name.try(:first)
       @lastname = split_name.try(:last)
     end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])
@@ -101,5 +102,4 @@ class ReservationsController < ApplicationController
     def set_doctors
       @doctors = Doctor.all
     end
-
 end
