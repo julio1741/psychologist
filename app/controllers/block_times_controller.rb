@@ -7,8 +7,7 @@ class BlockTimesController < ApplicationController
   end
 
   # GET /block_times/1 or /block_times/1.json
-  def show
-  end
+  def show; end
 
   # GET /block_times/new
   def new
@@ -16,8 +15,7 @@ class BlockTimesController < ApplicationController
   end
 
   # GET /block_times/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /block_times or /block_times.json
   def create

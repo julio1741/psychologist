@@ -27,8 +27,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def welcome
-  end
+  def welcome; end
 
   # logout
   def destroy

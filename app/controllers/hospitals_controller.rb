@@ -7,8 +7,7 @@ class HospitalsController < ApplicationController
   end
 
   # GET /hospitals/1 or /hospitals/1.json
-  def show
-  end
+  def show; end
 
   # GET /hospitals/new
   def new
@@ -16,8 +15,7 @@ class HospitalsController < ApplicationController
   end
 
   # GET /hospitals/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /hospitals or /hospitals.json
   def create

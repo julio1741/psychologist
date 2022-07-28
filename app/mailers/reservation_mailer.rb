@@ -8,7 +8,7 @@ class ReservationMailer < ApplicationMailer
     @work_day = @reservation.work_day
     @block_time = @reservation.block_time
     @hospital = @doctor.hospital
-    app_host = ENV['APP_HOST']
+    app_host = ENV.fetch('APP_HOST', nil)
     @url = "#{app_host}reservations/#{@reservation.id}/cancel"
     mail(to: @user.email, subject: 'Thank you for using Psychologist App')
   end

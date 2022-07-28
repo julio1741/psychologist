@@ -11,8 +11,7 @@ class ReservationsController < ApplicationController
   end
 
   # GET /reservations/1 or /reservations/1.json
-  def show
-  end
+  def show; end
 
   # GET /reservations/new
   def new
@@ -20,11 +19,9 @@ class ReservationsController < ApplicationController
   end
 
   # GET /reservations/1/edit
-  def edit
-  end
+  def edit; end
 
-  def cancel
-  end
+  def cancel; end
 
   # POST /reservations or /reservations.json
   def create

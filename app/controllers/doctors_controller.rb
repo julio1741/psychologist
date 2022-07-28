@@ -33,8 +33,7 @@ class DoctorsController < ApplicationController
   end
 
   # GET /doctors/1 or /doctors/1.json
-  def show
-  end
+  def show; end
 
   # GET /doctors/new
   def new
@@ -42,8 +41,7 @@ class DoctorsController < ApplicationController
   end
 
   # GET /doctors/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /doctors or /doctors.json
   def create
