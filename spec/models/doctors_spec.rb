@@ -2,7 +2,7 @@ require "rails_helper"
 RSpec.describe Doctor, :type => :model do
     subject(:hospital) do
     Hospital.create(name: 'Integra Médica')
-  end
+    end
 
   subject(:block_time) do
     BlockTime.create(start:'8:00', end:'9:00')
@@ -37,6 +37,6 @@ RSpec.describe Doctor, :type => :model do
       it 'returns a work day' do
         expect(work_day.name).to be == 'monday'
       end
-    end
+   end
   end
 end

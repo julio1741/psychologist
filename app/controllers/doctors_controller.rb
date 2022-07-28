@@ -91,6 +91,7 @@ class DoctorsController < ApplicationController
   private
     def add_working_days(doctor, work_days=[])
       return if work_days.blank?
+
       doctor.work_days.destroy_all
       work_days.each do |work_day|
         doctor.work_days << WorkDay.find_by(name: work_day)
@@ -99,6 +100,7 @@ class DoctorsController < ApplicationController
 
     def add_working_hours(doctor, block_times=[])
       return if block_times.blank?
+
       doctor.block_times.destroy_all
       block_times.each do |block_time|
         doctor.block_times << BlockTime.find_by(id: block_time)
