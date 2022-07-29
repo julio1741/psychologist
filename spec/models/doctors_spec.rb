@@ -29,7 +29,7 @@ RSpec.describe Doctor, :type => :model do
         doctor.work_days << work_day
         doctor.block_times << block_time
         day = '2022-07-18'
-        block_times, work_day = helper.doctor_availability(day, doctor)
+        block_times = helper.doctor_availability(day, doctor)[0]
         expect(block_times.size).to be >= 1
       end
 

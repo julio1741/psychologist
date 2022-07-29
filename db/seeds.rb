@@ -76,9 +76,9 @@ doctor4.work_days << work_day7
 doctor1.block_times.clear
 doctor1.block_times << block_time1
 doctor1.block_times << block_time2
-doctor1.block_times << block_time3
-doctor1.block_times << block_time4
-doctor1.block_times << block_time5
+doctor1.block_times << block_time8
+doctor1.block_times << block_time7
+doctor1.block_times << block_time6
 
 doctor2.block_times.clear
 doctor2.block_times << block_time1
