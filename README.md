@@ -60,7 +60,9 @@ docker-compose run web rails db:create
 docker-compose run web rails db:migrate
 docker-compose run web rails db:seed
 docker-compose up
-```
+
+This will create the psychologist image and pull in the necessary dependencies.
+With these steps everything should be running on **port 3000**.```
 
 ## Test
 
@@ -71,10 +73,15 @@ cd psychologist
 docker-compose run web rspec
 docker compose run web rails test
 ```
+## Rubocop
 
+You can run rubocop to test code
+```sh
+rubocop
+```
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
-This will create the psychologist image and pull in the necessary dependencies.
-With these steps everything should be running on **port 3000**.
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-community-brightgreen.svg)](https://rubystyle.guide)
 
 ## Psychologist
 
