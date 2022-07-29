@@ -70,7 +70,7 @@ class ReservationsTest < ActionDispatch::IntegrationTest
     post "/login", params: { user: { username: user.username, password: password } }
   end
 
-  def make_reservation params
+  def make_reservation(params)
     post "/reservations", params: params
   end
 end

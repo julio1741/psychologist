@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     # normal create action
     @user = User.find_or_create_by(username: params[:user][:username])
     respond_to do |format|
-      if @user && @user.authenticate(params[:user][:password])
+      if @user&.authenticate(params[:user][:password])
         session[:user_id] = @user.id
         format.html { redirect_to root_path, notice: "Logged in!" }
       else

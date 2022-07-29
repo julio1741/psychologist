@@ -85,7 +85,7 @@ class ReservationsController < ApplicationController
   end
 
   def set_personal_info
-    split_name = current_user.username.strip.split()
+    split_name = current_user.username.strip.split
     @email = current_user.try(:email)
     @firstname = split_name.try(:first)
     @lastname = split_name.try(:last)
