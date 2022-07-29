@@ -37,7 +37,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_27_031240) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token",
+                                      unique: true
   end
 
   create_table "block_times", force: :cascade do |t|

@@ -15,7 +15,8 @@ class Reservation < ApplicationRecord
   validates :phone,  :presence => true,
                      :numericality => true,
                      :length => { :minimum => 10, :maximum => 15 }
-  validates_uniqueness_of :doctor_id, scope: %i[day work_day_id block_time_id], message: "is busy, pick another block"
+  validates_uniqueness_of :doctor_id, scope: %i[day work_day_id block_time_id],
+                                      message: "is busy, pick another block"
 
   scope :by_user, ->(user_id) { where(user_id: user_id) }
 

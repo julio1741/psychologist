@@ -10,3 +10,9 @@ AllCops:
     - 'bin/*'
     - 'log/*'
     - 'public/*'
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false

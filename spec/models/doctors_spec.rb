@@ -13,7 +13,8 @@ RSpec.describe Doctor, :type => :model do
   end
 
   subject(:doctor) do
-    Doctor.create(firstname: 'Antonia', lastname: 'Bravo', hospital_id: hospital.id, phone: '95612365478')
+    Doctor.create(firstname: 'Antonia', lastname: 'Bravo', hospital_id: hospital.id,
+                  phone: '95612365478')
   end
 
   describe 'doctor' do
@@ -23,12 +24,12 @@ RSpec.describe Doctor, :type => :model do
   end
 
   describe DoctorsHelper, type: :helper do
-    describe '#get_doctor_availability' do
+    describe '#doctor_availability' do
       it 'returns a block_time' do
         doctor.work_days << work_day
         doctor.block_times << block_time
         day = '2022-07-18'
-        block_times, work_day = helper.get_doctor_availability(day, doctor)
+        block_times, work_day = helper.doctor_availability(day, doctor)
         expect(block_times.size).to be >= 1
       end
 

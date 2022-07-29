@@ -23,7 +23,9 @@ class BlockTimesController < ApplicationController
 
     respond_to do |format|
       if @block_time.save
-        format.html { redirect_to block_time_url(@block_time), notice: "Block time was successfully created." }
+        format.html do
+          redirect_to block_time_url(@block_time), notice: "Block time was successfully created."
+        end
         format.json { render :show, status: :created, location: @block_time }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +38,9 @@ class BlockTimesController < ApplicationController
   def update
     respond_to do |format|
       if @block_time.update(block_time_params)
-        format.html { redirect_to block_time_url(@block_time), notice: "Block time was successfully updated." }
+        format.html do
+          redirect_to block_time_url(@block_time), notice: "Block time was successfully updated."
+        end
         format.json { render :show, status: :ok, location: @block_time }
       else
         format.html { render :edit, status: :unprocessable_entity }

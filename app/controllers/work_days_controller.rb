@@ -23,7 +23,9 @@ class WorkDaysController < ApplicationController
 
     respond_to do |format|
       if @work_day.save
-        format.html { redirect_to work_day_url(@work_day), notice: "Work day was successfully created." }
+        format.html do
+          redirect_to work_day_url(@work_day), notice: "Work day was successfully created."
+        end
         format.json { render :show, status: :created, location: @work_day }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +38,9 @@ class WorkDaysController < ApplicationController
   def update
     respond_to do |format|
       if @work_day.update(work_day_params)
-        format.html { redirect_to work_day_url(@work_day), notice: "Work day was successfully updated." }
+        format.html do
+          redirect_to work_day_url(@work_day), notice: "Work day was successfully updated."
+        end
         format.json { render :show, status: :ok, location: @work_day }
       else
         format.html { render :edit, status: :unprocessable_entity }

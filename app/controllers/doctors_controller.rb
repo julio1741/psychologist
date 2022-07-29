@@ -26,7 +26,7 @@ class DoctorsController < ApplicationController
 
   def get_available_hours
     day = params[:day]
-    @block_times, @work_day = helpers.get_doctor_availability(day, @doctor)
+    @block_times, @work_day = helpers.doctor_availability(day, @doctor)
     respond_to do |format|
       format.json { render :get_available_hours }
     end
@@ -112,7 +112,8 @@ class DoctorsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def doctor_params
-    params.require(:doctor).permit(:firstname, :lastname, :phone, :hospital_id, :work_days, :block_times)
+    params.require(:doctor).permit(:firstname, :lastname, :phone, :hospital_id, :work_days,
+                                   :block_times)
   end
 
   def set_hospitals

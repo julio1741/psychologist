@@ -9,11 +9,15 @@
 hospital_1 = Hospital.find_or_create_by(name: 'Santa Maria')
 hospital_2 = Hospital.find_or_create_by(name: 'Integra Médica')
 
-doctor1 = Doctor.find_or_create_by(firstname: 'Lucio', lastname: 'Olivares', hospital_id: hospital_1.id, phone: '95612365478')
-doctor2 = Doctor.find_or_create_by(firstname: 'Jose', lastname: 'Garcia', hospital_id: hospital_1.id, phone: '95612365478')
+doctor1 = Doctor.find_or_create_by(firstname: 'Lucio', lastname: 'Olivares',
+                                   hospital_id: hospital_1.id, phone: '95612365478')
+doctor2 = Doctor.find_or_create_by(firstname: 'Jose', lastname: 'Garcia',
+                                   hospital_id: hospital_1.id, phone: '95612365478')
 
-doctor3 = Doctor.find_or_create_by(firstname: 'Ricargo', lastname: 'Guillen', hospital_id: hospital_2.id, phone: '95612365478')
-doctor4 = Doctor.find_or_create_by(firstname: 'Antonia', lastname: 'Bravo', hospital_id: hospital_2.id, phone: '95612365478')
+doctor3 = Doctor.find_or_create_by(firstname: 'Ricargo', lastname: 'Guillen',
+                                   hospital_id: hospital_2.id, phone: '95612365478')
+doctor4 = Doctor.find_or_create_by(firstname: 'Antonia', lastname: 'Bravo',
+                                   hospital_id: hospital_2.id, phone: '95612365478')
 
 work_day1 = WorkDay.find_or_create_by(name: 'sunday', day_number: 0)
 work_day2 = WorkDay.find_or_create_by(name: 'monday', day_number: 1)
@@ -97,4 +101,7 @@ doctor4.block_times << block_time11
 doctor4.block_times << block_time10
 doctor4.block_times << block_time9
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+if Rails.env.development?
+  AdminUser.create!(email: 'admin@example.com', password: 'password',
+                    password_confirmation: 'password')
+end

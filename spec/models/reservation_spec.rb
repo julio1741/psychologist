@@ -17,7 +17,8 @@ RSpec.describe Reservation, :type => :model do
   end
 
   subject(:doctor) do
-    Doctor.create(firstname: 'Antonia', lastname: 'Bravo', hospital_id: hospital.id, phone: '95612365478')
+    Doctor.create(firstname: 'Antonia', lastname: 'Bravo', hospital_id: hospital.id,
+                  phone: '95612365478')
   end
 
   subject(:reservation) do

@@ -30,7 +30,9 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       @reservation.validate
       if @reservation.save
-        format.html { redirect_to reservations_url, notice: "Reservation was successfully created." }
+        format.html do
+          redirect_to reservations_url, notice: "Reservation was successfully created."
+        end
         format.json { render :show, status: :created, location: @reservation }
       else
         set_hospitals
@@ -46,7 +48,10 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       @reservation.validate
       if @reservation.update(reservation_params)
-        format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully updated." }
+        format.html do
+          redirect_to reservation_url(@reservation),
+                      notice: "Reservation was successfully updated."
+        end
         format.json { render :show, status: :ok, location: @reservation }
       else
         set_hospitals
@@ -62,7 +67,9 @@ class ReservationsController < ApplicationController
     @reservation.destroy
 
     respond_to do |format|
-      format.html { redirect_to reservations_url, notice: "Reservation was successfully canceled." }
+      format.html do
+        redirect_to reservations_url, notice: "Reservation was successfully canceled."
+      end
       format.json { head :no_content }
     end
   end
@@ -89,7 +96,8 @@ class ReservationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reservation_params
-    params.require(:reservation).permit(:firstname, :lastname, :phone, :day, :rut, :email, :block_time_id, :user_id, :work_day_id, :doctor_id)
+    params.require(:reservation).permit(:firstname, :lastname, :phone, :day, :rut, :email,
+                                        :block_time_id, :user_id, :work_day_id, :doctor_id)
   end
 
   def set_hospitals
