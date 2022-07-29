@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Doctor < ApplicationRecord
   belongs_to :hospital
   has_many :working_days, dependent: :destroy

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WorkDaysController < ApplicationController
   before_action :set_work_day, only: %i[show edit update destroy]
 

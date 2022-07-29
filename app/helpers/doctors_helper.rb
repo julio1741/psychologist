@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DoctorsHelper
   def doctor_availability(day, doctor)
     day_date = Date.parse(day).strftime("%A").downcase

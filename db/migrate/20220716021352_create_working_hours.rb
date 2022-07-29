@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateWorkingHours < ActiveRecord::Migration[7.0]
   def change
     create_table :working_hours do |t|

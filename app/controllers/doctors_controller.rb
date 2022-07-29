@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DoctorsController < ApplicationController
   before_action :set_doctor, only: %i[show edit update destroy available_hours]
   before_action :set_hospitals, only: %i[new edit index by_hospital]

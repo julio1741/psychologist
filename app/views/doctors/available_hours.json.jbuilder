@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.block_times do
   json.array! @block_times
 end

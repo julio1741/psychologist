@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show edit update destroy cancel]
   before_action :set_hospitals, only: %i[new edit]
@@ -77,9 +79,9 @@ class ReservationsController < ApplicationController
   private
 
   def not_authorized_reservation
-    if @reservation.user != current_user
-      redirect_to reservations_path, notice: "¡You are not authorized to view this page!"
-    end
+    return unless @reservation.user != current_user
+
+    redirect_to reservations_path, notice: "¡You are not authorized to view this page!"
   end
 
   def set_personal_info
