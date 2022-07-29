@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:new, :create, :edit, :update]
+  resources :users, only: %i[new create edit update]
 
   get '/signup' => 'users#new'
   root 'sessions#welcome'
