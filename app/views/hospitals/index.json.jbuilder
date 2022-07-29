@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-json.array! @hospitals, partial: "hospitals/hospital", as: :hospital
+json.array! @hospitals, partial: 'hospitals/hospital', as: :hospital

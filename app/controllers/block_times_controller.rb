@@ -26,7 +26,7 @@ class BlockTimesController < ApplicationController
     respond_to do |format|
       if @block_time.save
         format.html do
-          redirect_to block_time_url(@block_time), notice: "Block time was successfully created."
+          redirect_to block_time_url(@block_time), notice: 'Block time was successfully created.'
         end
         format.json { render :show, status: :created, location: @block_time }
       else
@@ -41,7 +41,7 @@ class BlockTimesController < ApplicationController
     respond_to do |format|
       if @block_time.update(block_time_params)
         format.html do
-          redirect_to block_time_url(@block_time), notice: "Block time was successfully updated."
+          redirect_to block_time_url(@block_time), notice: 'Block time was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @block_time }
       else
@@ -56,7 +56,7 @@ class BlockTimesController < ApplicationController
     @block_time.destroy
 
     respond_to do |format|
-      format.html { redirect_to block_times_url, notice: "Block time was successfully destroyed." }
+      format.html { redirect_to block_times_url, notice: 'Block time was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

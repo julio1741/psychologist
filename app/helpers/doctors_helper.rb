@@ -2,7 +2,7 @@
 
 module DoctorsHelper
   def doctor_availability(day, doctor)
-    day_date = Date.parse(day).strftime("%A").downcase
+    day_date = Date.parse(day).strftime('%A').downcase
     doctor_working_day = selected_work_day(day_date, doctor)
     return [[], nil] if doctor_working_day.nil?
 

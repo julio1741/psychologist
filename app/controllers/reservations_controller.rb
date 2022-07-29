@@ -33,7 +33,7 @@ class ReservationsController < ApplicationController
       @reservation.validate
       if @reservation.save
         format.html do
-          redirect_to reservations_url, notice: "Reservation was successfully created."
+          redirect_to reservations_url, notice: 'Reservation was successfully created.'
         end
         format.json { render :show, status: :created, location: @reservation }
       else
@@ -52,7 +52,7 @@ class ReservationsController < ApplicationController
       if @reservation.update(reservation_params)
         format.html do
           redirect_to reservation_url(@reservation),
-                      notice: "Reservation was successfully updated."
+                      notice: 'Reservation was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @reservation }
       else
@@ -70,7 +70,7 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        redirect_to reservations_url, notice: "Reservation was successfully canceled."
+        redirect_to reservations_url, notice: 'Reservation was successfully canceled.'
       end
       format.json { head :no_content }
     end
@@ -81,7 +81,7 @@ class ReservationsController < ApplicationController
   def not_authorized_reservation
     return unless @reservation.user != current_user
 
-    redirect_to reservations_path, notice: "¡You are not authorized to view this page!"
+    redirect_to reservations_path, notice: '¡You are not authorized to view this page!'
   end
 
   def set_personal_info

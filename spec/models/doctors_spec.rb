@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "rails_helper"
+require 'rails_helper'
 RSpec.describe Doctor, type: :model do
   subject(:hospital) do
     Hospital.create(name: 'Integra Médica')
@@ -20,7 +20,7 @@ RSpec.describe Doctor, type: :model do
   end
 
   describe 'doctor' do
-    it "is valid with attributes" do
+    it 'is valid with attributes' do
       expect(doctor).to be_valid
     end
   end

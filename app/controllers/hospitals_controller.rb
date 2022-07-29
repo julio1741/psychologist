@@ -26,7 +26,7 @@ class HospitalsController < ApplicationController
     respond_to do |format|
       if @hospital.save
         format.html do
-          redirect_to hospital_url(@hospital), notice: "Hospital was successfully created."
+          redirect_to hospital_url(@hospital), notice: 'Hospital was successfully created.'
         end
         format.json { render :show, status: :created, location: @hospital }
       else
@@ -41,7 +41,7 @@ class HospitalsController < ApplicationController
     respond_to do |format|
       if @hospital.update(hospital_params)
         format.html do
-          redirect_to hospital_url(@hospital), notice: "Hospital was successfully updated."
+          redirect_to hospital_url(@hospital), notice: 'Hospital was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @hospital }
       else
@@ -56,7 +56,7 @@ class HospitalsController < ApplicationController
     @hospital.destroy
 
     respond_to do |format|
-      format.html { redirect_to hospitals_url, notice: "Hospital was successfully destroyed." }
+      format.html { redirect_to hospitals_url, notice: 'Hospital was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

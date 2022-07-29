@@ -26,7 +26,7 @@ class WorkDaysController < ApplicationController
     respond_to do |format|
       if @work_day.save
         format.html do
-          redirect_to work_day_url(@work_day), notice: "Work day was successfully created."
+          redirect_to work_day_url(@work_day), notice: 'Work day was successfully created.'
         end
         format.json { render :show, status: :created, location: @work_day }
       else
@@ -41,7 +41,7 @@ class WorkDaysController < ApplicationController
     respond_to do |format|
       if @work_day.update(work_day_params)
         format.html do
-          redirect_to work_day_url(@work_day), notice: "Work day was successfully updated."
+          redirect_to work_day_url(@work_day), notice: 'Work day was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @work_day }
       else
@@ -56,7 +56,7 @@ class WorkDaysController < ApplicationController
     @work_day.destroy
 
     respond_to do |format|
-      format.html { redirect_to work_days_url, notice: "Work day was successfully destroyed." }
+      format.html { redirect_to work_days_url, notice: 'Work day was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

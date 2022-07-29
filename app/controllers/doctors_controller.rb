@@ -45,7 +45,7 @@ class DoctorsController < ApplicationController
       if @doctor.save
         add_working_days(@doctor, params[:doctor][:work_days])
         add_working_hours(@doctor, params[:doctor][:block_times])
-        format.html { redirect_to doctor_url(@doctor), notice: "Doctor was successfully created." }
+        format.html { redirect_to doctor_url(@doctor), notice: 'Doctor was successfully created.' }
         format.json { render :show, status: :created, location: @doctor }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class DoctorsController < ApplicationController
       if @doctor.update(doctor_params.except(:work_days))
         add_working_days(@doctor, params[:doctor][:work_days])
         add_working_hours(@doctor, params[:doctor][:block_times])
-        format.html { redirect_to doctor_url(@doctor), notice: "Doctor was successfully updated." }
+        format.html { redirect_to doctor_url(@doctor), notice: 'Doctor was successfully updated.' }
         format.json { render :show, status: :ok, location: @doctor }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -74,7 +74,7 @@ class DoctorsController < ApplicationController
     @doctor.destroy
 
     respond_to do |format|
-      format.html { redirect_to doctors_url, notice: "Doctor was successfully destroyed." }
+      format.html { redirect_to doctors_url, notice: 'Doctor was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
