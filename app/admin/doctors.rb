@@ -8,13 +8,13 @@ ActiveAdmin.register Doctor do
       f.input :firstname
       f.input :lastname
       f.input :phone
-      f.input :hospital_id, :as => :select, :collection => Hospital.all.map { |h|
-                                                             [h.name, h.id]
-                                                           }, :include_blank => false
-      f.input :work_days, :as => :check_boxes
-      f.input :block_times, :as => :check_boxes, member_label: Proc.new { |c|
-                                                                 "#{c.start.strftime("%I:%M %p")} #{c.end.strftime("%I:%M %p")}"
-                                                               }
+      f.input :hospital_id, as: :select, collection: Hospital.all.map { |h|
+                                                       [h.name, h.id]
+                                                     }, include_blank: false
+      f.input :work_days, as: :check_boxes
+      f.input :block_times, as: :check_boxes, member_label: Proc.new { |c|
+                                                              "#{c.start.strftime("%I:%M %p")} #{c.end.strftime("%I:%M %p")}"
+                                                            }
     end
 
     f.actions

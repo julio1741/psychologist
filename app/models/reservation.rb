@@ -8,15 +8,15 @@ class Reservation < ApplicationRecord
 
   validates_with RutValidator
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :firstname, :presence => true
-  validates :rut, :presence => true
-  validates :day, :presence => true
-  validates :work_day_id, :presence => true
-  validates :block_time_id, :presence => true
-  validates :doctor_id, :presence => true
-  validates :phone,  :presence => true,
-                     :numericality => true,
-                     :length => { :minimum => 10, :maximum => 15 }
+  validates :firstname, presence: true
+  validates :rut, presence: true
+  validates :day, presence: true
+  validates :work_day_id, presence: true
+  validates :block_time_id, presence: true
+  validates :doctor_id, presence: true
+  validates :phone,  presence: true,
+                     numericality: true,
+                     length: { minimum: 10, maximum: 15 }
   validates_uniqueness_of :doctor_id, scope: %i[day work_day_id block_time_id],
                                       message: "is busy, pick another block"
 

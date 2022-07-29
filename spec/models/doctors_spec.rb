@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "rails_helper"
-RSpec.describe Doctor, :type => :model do
+RSpec.describe Doctor, type: :model do
   subject(:hospital) do
     Hospital.create(name: 'Integra Médica')
   end
