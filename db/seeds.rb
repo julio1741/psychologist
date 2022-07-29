@@ -6,18 +6,18 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-hospital_1 = Hospital.find_or_create_by(name: 'Santa Maria')
-hospital_2 = Hospital.find_or_create_by(name: 'Integra Médica')
+hospital1 = Hospital.find_or_create_by(name: 'Santa Maria')
+hospital2 = Hospital.find_or_create_by(name: 'Integra Médica')
 
 doctor1 = Doctor.find_or_create_by(firstname: 'Lucio', lastname: 'Olivares',
                                    hospital_id: hospital_1.id, phone: '95612365478')
-doctor2 = Doctor.find_or_create_by(firstname: 'Jose', lastname: 'Garcia',
-                                   hospital_id: hospital_1.id, phone: '95612365478')
+doctor2 = Doctor.find_or_create_by(firstname: 'Jose', latname: 'Garcia',
+                                   hospital_id: hospital1.id, phone: '95612365478')
 
 doctor3 = Doctor.find_or_create_by(firstname: 'Ricargo', lastname: 'Guillen',
-                                   hospital_id: hospital_2.id, phone: '95612365478')
+                                   hospital_id: hospital2.id, phone: '95612365478')
 doctor4 = Doctor.find_or_create_by(firstname: 'Antonia', lastname: 'Bravo',
-                                   hospital_id: hospital_2.id, phone: '95612365478')
+                                   hospital_id: hospital2.id, phone: '95612365478')
 
 work_day1 = WorkDay.find_or_create_by(name: 'sunday', day_number: 0)
 work_day2 = WorkDay.find_or_create_by(name: 'monday', day_number: 1)

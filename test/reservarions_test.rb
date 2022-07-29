@@ -34,7 +34,7 @@ class ReservationsTest < ActionDispatch::IntegrationTest
                            work_day_id: work_days(:monday).id,
                            day: '2022-07-25',
                            phone: '95612365478',
-                           block_time_id: block_times(:block_time_1).id,
+                           block_time_id: block_times(:block_time1).id,
                            user_id: users(:julio).id
                          }
                        })
@@ -53,7 +53,7 @@ class ReservationsTest < ActionDispatch::IntegrationTest
                            work_day_id: work_days(:monday).id,
                            day: '2022-07-25',
                            phone: '95612365478',
-                           block_time_id: block_times(:block_time_1).id,
+                           block_time_id: block_times(:block_time1).id,
                            user_id: users(:julio).id
                          }
                        })
