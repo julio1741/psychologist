@@ -12,9 +12,10 @@ ActiveAdmin.register Doctor do
                                                        [h.name, h.id]
                                                      }, include_blank: false
       f.input :work_days, as: :check_boxes
-      f.input :block_times, as: :check_boxes, member_label: proc { |c|
-                                                              "#{c.start.strftime('%I:%M %p')} #{c.end.strftime('%I:%M %p')}"
-                                                            }
+      f.input :block_times, as: :check_boxes,
+                            member_label: proc { |c|
+                                            "#{c.start.strftime('%I:%M %p')} #{c.end.strftime('%I:%M %p')}"
+                                          }
     end
 
     f.actions
