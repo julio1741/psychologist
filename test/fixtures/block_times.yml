@@ -1,7 +1,7 @@
 <% start_time = 8 %>
 <% end_time = 9 %>
 <% 10.times do |n| %>
-block_time_<%= n %>:
+block_time<%= n %>:
   start: <%= Time.parse("#{start_time}:00") %>
   end: <%= Time.parse("#{end_time}:00") %>
   <% start_time+=1 %>

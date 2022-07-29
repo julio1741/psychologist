@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Doctor < ApplicationRecord
   belongs_to :hospital
   has_many :working_days, dependent: :destroy
@@ -8,8 +10,7 @@ class Doctor < ApplicationRecord
   has_many :block_times, through: :working_hours
 
   has_many :reservations
-  validates :phone,  :presence => {:message => 'must be 10-15 digit and numeric'},
-                     :numericality => true,
-                     :length => { :minimum => 10, :maximum => 15 }
+  validates :phone,  presence: { message: 'must be 10-15 digit and numeric' },
+                     numericality: true,
+                     length: { minimum: 10, maximum: 15 }
 end
-

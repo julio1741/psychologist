@@ -1,5 +1,6 @@
-class SessionsController < ApplicationController
+# frozen_string_literal: true
 
+class SessionsController < ApplicationController
   skip_before_action :require_login
 
   def new
@@ -11,11 +12,11 @@ class SessionsController < ApplicationController
     # normal create action
     @user = User.find_or_create_by(username: params[:user][:username])
     respond_to do |format|
-      if @user && @user.authenticate(params[:user][:password])
+      if @user&.authenticate(params[:user][:password])
         session[:user_id] = @user.id
-        format.html { redirect_to root_path, notice: "Logged in!" }
+        format.html { redirect_to root_path, notice: 'Logged in!' }
       else
-        flash[:error] = "Sorry, your username or password was incorrect"
+        flash[:error] = 'Sorry, your username or password was incorrect'
         format.html { render :login, status: :unprocessable_entity }
       end
     end
@@ -28,10 +29,9 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def welcome
-  end
+  def welcome; end
 
-  #logout
+  # logout
   def destroy
     session.clear
     redirect_to '/goodbye'

@@ -1,0 +1,24 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - '.git/**/*'
+    - 'bin/*'
+    - 'log/*'
+    - 'public/*'
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
