@@ -21,6 +21,7 @@ class Reservation < ApplicationRecord
                                       message: 'is busy, pick another block'
 
   scope :by_user, ->(user_id) { where(user_id: user_id) }
+  scope :actives, -> { where('day > ?', Time.zone.now) }
 
   after_create :send_email
 

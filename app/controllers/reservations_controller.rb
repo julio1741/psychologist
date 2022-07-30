@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations or /reservations.json
   def index
-    @reservations = Reservation.by_user(current_user.id)
+    @reservations = Reservation.actives.by_user(current_user.id)
   end
 
   # GET /reservations/1 or /reservations/1.json
