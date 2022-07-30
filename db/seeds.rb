@@ -12,8 +12,8 @@ hospital1 = Hospital.find_or_create_by(name: 'Santa Maria')
 hospital2 = Hospital.find_or_create_by(name: 'Integra Médica')
 
 doctor1 = Doctor.find_or_create_by(firstname: 'Lucio', lastname: 'Olivares',
-                                   hospital_id: hospital_1.id, phone: '95612365478')
-doctor2 = Doctor.find_or_create_by(firstname: 'Jose', latname: 'Garcia',
+                                   hospital_id: hospital1.id, phone: '95612365478')
+doctor2 = Doctor.find_or_create_by(firstname: 'Jose', lastname: 'Garcia',
                                    hospital_id: hospital1.id, phone: '95612365478')
 
 doctor3 = Doctor.find_or_create_by(firstname: 'Ricargo', lastname: 'Guillen',
