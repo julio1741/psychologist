@@ -6,7 +6,7 @@ class LoginTest < ActionDispatch::IntegrationTest
   fixtures :users
 
   test 'login with valid credentials' do
-    get '/login'
+    get '/user/login'
     assert_equal 200, status
     login(:maria, 'maria')
     follow_redirect!
@@ -15,7 +15,7 @@ class LoginTest < ActionDispatch::IntegrationTest
   end
 
   test 'login with wrong credentials' do
-    get '/login'
+    get '/user/login'
     assert_equal 200, status
     login(:julio, 'juliooo')
     assert_equal '/login', path
