@@ -10,7 +10,6 @@ class ReservationsTest < ActionDispatch::IntegrationTest
   fixtures :users
 
   test 'login and browse rervations' do
-    get '/login'
     login(:maria, 'maria')
     follow_redirect!
 

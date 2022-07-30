@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   root 'sessions#welcome'
   get '/goodbye' => 'sessions#goodbye'
 
-  get '/login' => 'sessions#new'
+  get 'user/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
