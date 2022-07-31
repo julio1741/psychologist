@@ -21,7 +21,7 @@
                       <p class="card-text">
                         <strong>Doctor:</strong> <%= reservation.doctor.firstname %>
                         <br>
-                        <strong>day:</strong> <%= reservation.work_day.name %>
+                        <strong>day:</strong> <%= "#{reservation.day.strftime("%y-%m-%d")} #{reservation.work_day.name}" %> 
                          <br>
                          <strong>Hour:</strong> <%= reservation.block_time.start.strftime("%I:%M %p") %> - <%= reservation.block_time.end.strftime("%I:%M %p") %>
                       </p>
